@@ -88,10 +88,10 @@
 		76F6D3FB244602F0008026B5 /* ManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
-				76F6D3FC244602F0008026B5 /* Car+CoreDataProperties.swift */,
 				76F6D3FD244602F0008026B5 /* Person+CoreDataClass.swift */,
-				76F6D3FE244602F1008026B5 /* Car+CoreDataClass.swift */,
 				76F6D3FF244602F1008026B5 /* Person+CoreDataProperties.swift */,
+				76F6D3FE244602F1008026B5 /* Car+CoreDataClass.swift */,
+				76F6D3FC244602F0008026B5 /* Car+CoreDataProperties.swift */,
 			);
 			path = ManagedObjects;
 			sourceTree = "<group>";

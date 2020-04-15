@@ -121,34 +121,14 @@ class TableViewController: UITableViewController {
         guard frc.sections?.count == 0 else { return }
         
         //Amir
-        let amir = Person(context: context)
-        amir.name = "Amir"
-        amir.age = 41
-        
-        let picanto = Car(context: context)
-        picanto.model = "Picanto"
-        picanto.mileage = 32000
-        
-        let corolla = Car(context: context)
-        corolla.model = "Corolla"
-        corolla.mileage = 800
-        
-        amir.cars = [picanto, corolla]
+        let amir =      Person(context: context, name: "Amir", age: 41, cars: nil)
+        let _ =         Car(contex: context, model: "Picanto", mileage: 32000, owener: amir)
+        let _ =         Car(contex: context, model: "Corrola", mileage: 800, owener: amir)
         
         //David
-        let david = Person(context: context)
-        david.name = "David"
-        david.age = 39
-        
-        let porche = Car(context: context)
-        porche.model = "Porche 911"
-        porche.mileage = 156000
-        
-        let bmw = Car(context: context)
-        bmw.model = "BMW 328 M3"
-        bmw.mileage = 22000
-        
-        david.cars = [porche, bmw]
+        let porche =    Car(contex: context, model: "911 Turbo", mileage: 256000, owener: nil)
+        let bmw =       Car(contex: context, model: "328 M3", mileage: 22000, owener: nil)
+        let _ =         Person(context: context, name: "David", age: 39, cars: [porche, bmw])
         
         DBManager.shared.saveContext()
         

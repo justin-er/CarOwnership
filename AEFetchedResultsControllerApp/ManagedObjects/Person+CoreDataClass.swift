@@ -12,5 +12,12 @@ import CoreData
 
 @objc(Person)
 public class Person: NSManagedObject {
-
+    
+    convenience init(context: NSManagedObjectContext, name: String, age: Int, cars: Set<Car>?) {
+        self.init(context: context)
+        
+        self.name = name
+        self.age = Int16(age)
+        self.cars = cars as NSSet?
+    }
 }

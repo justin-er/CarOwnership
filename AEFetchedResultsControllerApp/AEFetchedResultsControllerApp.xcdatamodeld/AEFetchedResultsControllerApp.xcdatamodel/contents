@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Car" representedClassName="Car" syncable="YES">
-        <attribute name="mileage" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="model" optional="YES" attributeType="String"/>
-        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="cars" inverseEntity="Person"/>
+    <entity name="ManagedCar" representedClassName="ManagedCar" syncable="YES">
+        <attribute name="mileage" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="model" attributeType="String"/>
+        <relationship name="manufacturer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ManagedManufacturer" inverseName="models" inverseEntity="ManagedManufacturer"/>
+        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ManagedPerson" inverseName="cars" inverseEntity="ManagedPerson"/>
     </entity>
-    <entity name="Person" representedClassName="Person" syncable="YES">
-        <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="cars" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Car" inverseName="owner" inverseEntity="Car"/>
+    <entity name="ManagedManufacturer" representedClassName="ManagedManufacturer" syncable="YES">
+        <attribute name="name" attributeType="String"/>
+        <attribute name="ranking" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="models" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ManagedCar" inverseName="manufacturer" inverseEntity="ManagedCar"/>
+    </entity>
+    <entity name="ManagedPerson" representedClassName="ManagedPerson" syncable="YES">
+        <attribute name="birthdate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="cars" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ManagedCar" inverseName="owner" inverseEntity="ManagedCar"/>
     </entity>
     <elements>
-        <element name="Car" positionX="-54" positionY="9" width="128" height="88"/>
-        <element name="Person" positionX="-36" positionY="54" width="128" height="88"/>
+        <element name="ManagedCar" positionX="-54" positionY="9" width="128" height="103"/>
+        <element name="ManagedManufacturer" positionX="-45" positionY="63" width="128" height="88"/>
+        <element name="ManagedPerson" positionX="-36" positionY="54" width="128" height="88"/>
     </elements>
 </model>

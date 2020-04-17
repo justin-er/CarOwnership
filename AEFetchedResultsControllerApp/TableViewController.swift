@@ -11,138 +11,98 @@ import CoreData
 
 class TableViewController: UITableViewController {
 
-    var context = DBManager.shared.context
-    var frc: NSFetchedResultsController<Car>!
+    var dataProvider: DBProvider02Interface!
+    var frc: NSFetchedResultsController<ManagedCar>?
+    var addButtonItem: UIBarButtonItem!
+    var saveButtonItem: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let fetchRequest: NSFetchRequest<Car> = Car.fetchRequest()
-        let sort = NSSortDescriptor(key: #keyPath(Car.owner.name), ascending: true)
-        fetchRequest.sortDescriptors = [sort]
+        self.navigationItem.leftBarButtonItem = self.editButtonItem
         
-        frc = NSFetchedResultsController(fetchRequest: fetchRequest,
-                                         managedObjectContext: context,
-                                         sectionNameKeyPath: #keyPath(Car.owner.name),
-                                         cacheName: nil)
-        frc.delegate = self
+        addButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addSomething))
+        self.navigationItem.rightBarButtonItem = self.addButtonItem
         
-        do {
-            try frc.performFetch()
-            tableView.reloadData()
-            initializeDatabase()
-        } catch {
-            let nserror = error as NSError
-            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-        }
+        saveButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveSomething))
+        self.navigationItem.rightBarButtonItems?.append(contentsOf: [saveButtonItem])
+        
+        let dbp = DBProvider02()
+        dataProvider = dbp as DBProvider02Interface
+        dbp.delegate = self
+    }
+    
+    @objc func addSomething() {
+        dataProvider.addSomething()
+    }
+    
+    @objc func saveSomething() {
+        dataProvider.saveSomething()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        dataProvider.relaodData()
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return frc.sections?.count ?? 0
+        return frc?.sections?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let sections = frc.sections else {
+        guard let sections = frc?.sections else {
             return 0
         }
         let section = sections[section]
         return section.numberOfObjects
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CarOwnerCell", for: indexPath) as! CarOwnerCell
 
+        guard let frc = self.frc else {
+            return cell
+        }
         let car = frc.object(at: indexPath)
         cell.car.text = car.model
+        cell.manufacturer.text = car.manufacturer?.name
         cell.mileage.text = "\(car.mileage)"
 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        guard let sections = frc.sections else {
-            return ""
-        }
-        
-        return sections[section].name
+        return frc?.sections?[section].name
     }
-    
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        guard editingStyle == .delete else { return }
+        
+        dataProvider.deleteObject(at: indexPath)
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
-    func initializeDatabase() {
-        print(frc.sections!.count)
-        guard frc.sections?.count == 0 else { return }
-        
-        //Amir
-        let amir =      Person(context: context, name: "Amir", age: 41, cars: nil)
-        let _ =         Car(contex: context, model: "Picanto", mileage: 32000, owener: amir)
-        let _ =         Car(contex: context, model: "Corrola", mileage: 800, owener: amir)
-        
-        //David
-        let porche =    Car(contex: context, model: "911 Turbo", mileage: 256000, owener: nil)
-        let bmw =       Car(contex: context, model: "328 M3", mileage: 22000, owener: nil)
-        let _ =         Person(context: context, name: "David", age: 39, cars: [porche, bmw])
-        
-        DBManager.shared.saveContext()
-        
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //
     }
 }
 
-//MARK: - NSFetchedResltsControllerDelegate
-extension TableViewController: NSFetchedResultsControllerDelegate {
+extension TableViewController: DBProvider02Delegate {
     
-    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+    func providerDidReloadData(_ provider: DBProvider02Interface, frc: NSFetchedResultsController<ManagedCar>) {
+        
+        self.frc = frc
+        tableView.reloadData()
+    }
+    
+    func providerWillChangeContent(_ provider: DBProvider02Interface, frc: NSFetchedResultsController<ManagedCar>) {
+        
+        self.frc = frc
         tableView.beginUpdates()
     }
     
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+    func provider(_ provider: DBProvider02Interface, frc: NSFetchedResultsController<ManagedCar>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
+        self.frc = frc
         switch type {
         case .delete:
             tableView.deleteRows(at: [indexPath!], with: .automatic)
@@ -155,7 +115,9 @@ extension TableViewController: NSFetchedResultsControllerDelegate {
         }
     }
     
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+    func provider(_ provider: DBProvider02Interface, frc: NSFetchedResultsController<ManagedCar>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        
+        self.frc = frc
         switch type {
         case .update:
             tableView.reloadSections(IndexSet([sectionIndex]), with: .automatic)
@@ -168,7 +130,9 @@ extension TableViewController: NSFetchedResultsControllerDelegate {
         }
     }
     
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+    func providerDidChangeContent(_ provider: DBProvider02Interface, frc: NSFetchedResultsController<ManagedCar>) {
+        
+        self.frc = frc
         tableView.endUpdates()
     }
 }

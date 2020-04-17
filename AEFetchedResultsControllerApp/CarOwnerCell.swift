@@ -11,7 +11,7 @@ import UIKit
 class CarOwnerCell: UITableViewCell {
     @IBOutlet weak var car: UILabel!
     @IBOutlet weak var mileage: UILabel!
-    
+    @IBOutlet weak var manufacturer: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

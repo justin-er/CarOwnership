@@ -1,16 +1,16 @@
 //
-//  DBManager.swift
+//  DBConstructor.swift
 //  AEFetchedResultsControllerApp
 //
-//  Created by Amirreza Eghtedari on 14.04.20.
+//  Created by Amirreza Eghtedari on 17.04.20.
 //  Copyright © 2020 Amirreza Eghtedari. All rights reserved.
 //
 
+import Foundation
 import CoreData
 
 class DBManager {
     
-    static var shared: DBManager = DBManager()
     var persistentContainer: NSPersistentContainer
     
     private init() {
@@ -20,16 +20,17 @@ class DBManager {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
-        
     }
+    
+    static let shared = DBManager()
     
     var context: NSManagedObjectContext {
         return self.persistentContainer.viewContext
     }
-
+    
     // MARK: - Core Data Saving support
 
-    func saveContext () {
+    func saveContext() {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
@@ -41,4 +42,3 @@ class DBManager {
         }
     }
 }
-

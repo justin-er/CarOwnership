@@ -10,11 +10,19 @@ import Foundation
 
 protocol OwnershipDataProviderDelegate: class {
     
-    func providerDidReloadData<Provider: OwnershipDataProviderInterface>(_ provider: Provider)
+    func providerDidReloadData(_ provider: OwnershipDataProviderInterface)
     
-    func providerDidFilterData<Provider: OwnershipDataProviderInterface>(_ provider: Provider)
+    func providerDidFilterData(_ provider: OwnershipDataProviderInterface)
     
-    func provider<Provider: AEListModelProvider>(_ provider: Provider, didChangeModels changeEvent: AEModelEvent<Ownership>)
+//    func provider(_ provider: OwnershipDataProviderInterface, didChangeModels changeEvent: AEModelEvent<Ownership>)
+//    
+//    func provider(_ provider: OwnershipDataProviderInterface, didChangeSections changeEvent: AESectionInfoEvent)
     
-    func provider1<Provider: AEListModelProvider>(_ provider: Provider, didChangeSections changeEvent: AESectionInfoEvent)
+    func providerWillChangeContent(_ provider: OwnershipDataProviderInterface)
+    
+    func provider(_ provider: OwnershipDataProviderInterface, didChange anObject: Ownership, at indexPath: IndexPath?, for type: AEModelChangeType, newIndexPath: IndexPath?)
+    
+    func providerDidChangeSection(_ provider: OwnershipDataProviderInterface, at sectionIndex: Int, for type: AEModelChangeType)
+    
+    func providerDidChangeContent(_ provider: OwnershipDataProviderInterface)
 }

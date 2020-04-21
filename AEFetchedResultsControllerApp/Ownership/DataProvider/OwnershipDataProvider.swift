@@ -130,7 +130,7 @@ extension OwnershipDataProvider: OwnershipDataProviderInterface {
 }
 
 extension OwnershipDataProvider: AEListModelProvider {
-    
+
     typealias Model = Ownership
     
     var objects: [Ownership]? {
@@ -149,7 +149,7 @@ extension OwnershipDataProvider: AEListModelProvider {
         return frc.sections?.count
     }
     
-    var sctionIndexTitles: [String] {
+    var sectionIndexTitles: [String] {
         return frc.sectionIndexTitles
     }
     
@@ -175,6 +175,7 @@ extension OwnershipDataProvider: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         modelEvent =        AEModelEvent()
         sectionInfoEvent =   AESectionInfoEvent()
+        delegate?.providerWillChangeContent(self)
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
@@ -203,8 +204,23 @@ extension OwnershipDataProvider: NSFetchedResultsControllerDelegate {
             
         default:
             break
-            
         }
+        
+        let changeType: AEModelChangeType
+        switch type {
+        case .delete:
+            changeType = .delete
+        case .insert:
+            changeType = .insert
+        case .update:
+            changeType = .update
+        case .move:
+            changeType = . move
+        @unknown default:
+            fatalError()
+        }
+        
+        delegate?.provider(self, didChange: ownership, at: indexPath, for: changeType, newIndexPath: newIndexPath)
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
@@ -227,20 +243,37 @@ extension OwnershipDataProvider: NSFetchedResultsControllerDelegate {
             
         default:
             break
-            
         }
+        
+        let changeType: AEModelChangeType
+        switch type {
+        case .delete:
+            changeType = .delete
+        case .insert:
+            changeType = .insert
+        case .update:
+            changeType = .update
+        case .move:
+            changeType = . move
+        @unknown default:
+            fatalError()
+        }
+        
+        delegate?.providerDidChangeSection(self, at: sectionIndex, for: changeType)
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         
-        if let modelEvent = self.modelEvent {
-            delegate?.provider(self, didChangeModels: modelEvent)
-            self.modelEvent = nil
-        }
+//        if let modelEvent = self.modelEvent {
+//            delegate?.provider(self, didChangeModels: modelEvent)
+//            self.modelEvent = nil
+//        }
+//
+//        if let sectionInfoEvent = self.sectionInfoEvent {
+//            delegate?.provider(self, didChangeSections: sectionInfoEvent)
+//            self.sectionInfoEvent = nil
+//        }
         
-        if let sectionInfoEvent = self.sectionInfoEvent {
-            delegate?.provider1(self, didChangeSections: sectionInfoEvent)
-            self.sectionInfoEvent = nil
-        }
+        delegate?.providerDidChangeContent(self)
     }
 }

@@ -10,11 +10,19 @@ import Foundation
 
 protocol OwnershipPresenterDelegate: class {
     
-    func presenterDidReloadData<Presenter: OwnershipPresenterInterface>(_ provider: Presenter)
+    func presenterDidReloadData(_ presenter: OwnershipPresenterInterface)
     
-    func presenterDidFilterData<Presenter: OwnershipPresenterInterface>(_ provider: Presenter)
+    func presenterDidFilterData(_ presenter: OwnershipPresenterInterface)
     
-    func presenter<Presenter: OwnershipPresenterInterface>(_ provider: Presenter, didChangeModels changeEvent: AEModelEvent<OwnershipViewModel>)
+//    func presenter(_ presenter: OwnershipPresenterInterface, didChangeModels changeEvent: AEModelEvent<OwnershipViewModel>)
+//    
+//    func presenter(_ presenter: OwnershipPresenterInterface, didChangeSections changeEvent: AESectionInfoEvent)
     
-    func presenter<Presenter: OwnershipPresenterInterface>(_ provider: Presenter, didChangeSections changeEvent: AESectionInfoEvent)
+    func presenterWillChangeContent(_ presenter: OwnershipPresenterInterface)
+    
+    func presenter(_ presenter: OwnershipPresenterInterface, didChange anObject: OwnershipViewModel, at indexPath: IndexPath?, for type: AEModelChangeType, newIndexPath: IndexPath?)
+    
+    func presenterDidChangeSection(_ presenter: OwnershipPresenterInterface, at sectionIndex: Int, for type: AEModelChangeType)
+    
+    func presenterDidChangeContent(_ presenter: OwnershipPresenterInterface)
 }

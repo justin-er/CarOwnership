@@ -8,9 +8,18 @@
 
 import Foundation
 
-protocol OwnershipDataProviderInterface: AEListModelProvider  {
+protocol OwnershipDataProviderInterface: class  {
+    
+    var objects: [Ownership]? { get }
+    func object(at indexPath: IndexPath) -> Ownership
+    
+    var sectionIndexTitles: [String] { get }
+    var sectionsCount: Int? { get }
+    func section(forSectionIndexTitle title: String, at sectionIndex: Int) -> Int
+    func sectionIndexTitle(forSectionName sectionName: String) -> String?
+    
     func relaodData()
-    func initializeDatabase()
+    
     func deleteObject(at indexPath: IndexPath)
     func addSomething()
     func saveSomething()

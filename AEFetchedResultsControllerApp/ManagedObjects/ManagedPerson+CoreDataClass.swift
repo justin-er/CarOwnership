@@ -23,6 +23,6 @@ public class ManagedPerson: NSManagedObject {
     
     var person: Person {
         return Person(birthdate: self.birthdate!,
-                      name: self.name)
+                      name: self.name!)
     }
 }

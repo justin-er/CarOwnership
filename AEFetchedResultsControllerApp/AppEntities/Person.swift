@@ -10,5 +10,5 @@ import Foundation
 
 struct Person {
     public var birthdate: Date
-    public var name: String?
+    public var name: String
 }

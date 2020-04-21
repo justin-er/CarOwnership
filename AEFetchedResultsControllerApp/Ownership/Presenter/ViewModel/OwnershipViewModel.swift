@@ -12,4 +12,10 @@ struct OwnershipViewModel {
     var person:         PersonViewModel
     var car:            CarViewModel
     var manufacturer:   ManufacturerViewModel
+
+    init(ownerhsip: Ownership) {
+        self.person = Person(
+    }
 }
+
+

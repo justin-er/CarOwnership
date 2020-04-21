@@ -8,6 +8,10 @@
 
 import Foundation
 
-protocol DBProviderInterface {
-    
+protocol DBProviderInterface: AEListModelProvider  {
+    func relaodData()
+    func initializeDatabase()
+    func deleteObject(at indexPath: IndexPath)
+    func addSomething()
+    func saveSomething()
 }

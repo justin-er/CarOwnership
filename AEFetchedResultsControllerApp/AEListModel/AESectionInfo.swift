@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol AEListModelSectionInfo {
+protocol AESectionInfo {
     var numberOfObjects: Int { get }
     var objects: [Any]? { get }
     var name: String { get }

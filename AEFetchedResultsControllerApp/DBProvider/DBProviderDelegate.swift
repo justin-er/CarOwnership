@@ -8,7 +8,13 @@
 
 import Foundation
 
-protocol DBProviderDelegate {
+protocol DBProviderDelegate: class {
     
-    func providerWillChangeContent(_ provider: DBProviderInterface, dataModel: OwnershipListProvider)
+    func providerDidReloadData<Provider: DBProviderInterface>(_ provider: Provider)
+    
+    func providerDidFilterData<Provider: DBProviderInterface>(_ provider: Provider)
+    
+    func provider<Provider: AEListModelProvider>(_ provider: Provider, didChangeModels changeEvent: AEModelEvent<Ownership>)
+    
+    func provider1<Provider: AEListModelProvider>(_ provider: Provider, didChangeSections changeEvent: AESectionInfoEvent<AESectionInfo>)
 }

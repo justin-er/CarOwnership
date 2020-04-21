@@ -22,9 +22,9 @@
 		7683BA042448243D00B4B3F1 /* ManagedCar+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7683B9FE2448243D00B4B3F1 /* ManagedCar+CoreDataProperties.swift */; };
 		7683BA052448243D00B4B3F1 /* ManagedManufacturer+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7683B9FF2448243D00B4B3F1 /* ManagedManufacturer+CoreDataClass.swift */; };
 		7683BA062448243D00B4B3F1 /* ManagedManufacturer+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7683BA002448243D00B4B3F1 /* ManagedManufacturer+CoreDataProperties.swift */; };
-		769681B4244710BD00BC1477 /* AEResultsChangeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769681AF244710BD00BC1477 /* AEResultsChangeType.swift */; };
+		769681B4244710BD00BC1477 /* AEModelChangeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769681AF244710BD00BC1477 /* AEModelChangeType.swift */; };
 		769681B5244710BD00BC1477 /* AEListModelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769681B0244710BD00BC1477 /* AEListModelProvider.swift */; };
-		769681C22447672400BC1477 /* AEListModelSectionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769681C12447672400BC1477 /* AEListModelSectionInfo.swift */; };
+		769681C22447672400BC1477 /* AESectionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769681C12447672400BC1477 /* AESectionInfo.swift */; };
 		769681C424477B9600BC1477 /* AEModelConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769681C324477B9600BC1477 /* AEModelConverter.swift */; };
 		76B807D624485191007D8D40 /* DBProviderInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B807D524485191007D8D40 /* DBProviderInterface.swift */; };
 		76B807D8244851B2007D8D40 /* DBProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B807D7244851B2007D8D40 /* DBProviderDelegate.swift */; };
@@ -34,6 +34,12 @@
 		76B807E0244862D5007D8D40 /* DBProviderUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B807DF244862D5007D8D40 /* DBProviderUtility.swift */; };
 		76B807EA24488129007D8D40 /* OwnershipResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B807E924488129007D8D40 /* OwnershipResultsController.swift */; };
 		76B807EC24488287007D8D40 /* NSFetchedResultsController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B807EB24488287007D8D40 /* NSFetchedResultsController+Ext.swift */; };
+		76C1C794244ED682000056F0 /* AEModelEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C1C793244ED682000056F0 /* AEModelEvent.swift */; };
+		76C1C796244ED8F8000056F0 /* AEModelChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C1C795244ED8F8000056F0 /* AEModelChange.swift */; };
+		76C1C798244ED95B000056F0 /* AEModelMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C1C797244ED95B000056F0 /* AEModelMove.swift */; };
+		76C1C79A244EDDF5000056F0 /* AESectionInfoChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C1C799244EDDF5000056F0 /* AESectionInfoChange.swift */; };
+		76C1C79C244EDF20000056F0 /* AESectionInfoMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C1C79B244EDF20000056F0 /* AESectionInfoMove.swift */; };
+		76C1C79E244EDF49000056F0 /* AESectionInfoEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C1C79D244EDF49000056F0 /* AESectionInfoEvent.swift */; };
 		76F6D3DD2445FC4B008026B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F6D3DC2445FC4B008026B5 /* AppDelegate.swift */; };
 		76F6D3DF2445FC4B008026B5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F6D3DE2445FC4B008026B5 /* SceneDelegate.swift */; };
 		76F6D3E42445FC4B008026B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76F6D3E22445FC4B008026B5 /* Main.storyboard */; };
@@ -59,9 +65,9 @@
 		7683B9FE2448243D00B4B3F1 /* ManagedCar+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ManagedCar+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7683B9FF2448243D00B4B3F1 /* ManagedManufacturer+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ManagedManufacturer+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7683BA002448243D00B4B3F1 /* ManagedManufacturer+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ManagedManufacturer+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		769681AF244710BD00BC1477 /* AEResultsChangeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AEResultsChangeType.swift; sourceTree = "<group>"; };
+		769681AF244710BD00BC1477 /* AEModelChangeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AEModelChangeType.swift; sourceTree = "<group>"; };
 		769681B0244710BD00BC1477 /* AEListModelProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AEListModelProvider.swift; sourceTree = "<group>"; };
-		769681C12447672400BC1477 /* AEListModelSectionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEListModelSectionInfo.swift; sourceTree = "<group>"; };
+		769681C12447672400BC1477 /* AESectionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AESectionInfo.swift; sourceTree = "<group>"; };
 		769681C324477B9600BC1477 /* AEModelConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEModelConverter.swift; sourceTree = "<group>"; };
 		769681C524477ECF00BC1477 /* AEFetchedResultsControllerOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEFetchedResultsControllerOld.swift; sourceTree = "<group>"; };
 		76B807D524485191007D8D40 /* DBProviderInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBProviderInterface.swift; sourceTree = "<group>"; };
@@ -72,6 +78,12 @@
 		76B807DF244862D5007D8D40 /* DBProviderUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBProviderUtility.swift; sourceTree = "<group>"; };
 		76B807E924488129007D8D40 /* OwnershipResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipResultsController.swift; sourceTree = "<group>"; };
 		76B807EB24488287007D8D40 /* NSFetchedResultsController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSFetchedResultsController+Ext.swift"; sourceTree = "<group>"; };
+		76C1C793244ED682000056F0 /* AEModelEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEModelEvent.swift; sourceTree = "<group>"; };
+		76C1C795244ED8F8000056F0 /* AEModelChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEModelChange.swift; sourceTree = "<group>"; };
+		76C1C797244ED95B000056F0 /* AEModelMove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEModelMove.swift; sourceTree = "<group>"; };
+		76C1C799244EDDF5000056F0 /* AESectionInfoChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AESectionInfoChange.swift; sourceTree = "<group>"; };
+		76C1C79B244EDF20000056F0 /* AESectionInfoMove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AESectionInfoMove.swift; sourceTree = "<group>"; };
+		76C1C79D244EDF49000056F0 /* AESectionInfoEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AESectionInfoEvent.swift; sourceTree = "<group>"; };
 		76F6D3D92445FC4B008026B5 /* AEFetchedResultsControllerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AEFetchedResultsControllerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76F6D3DC2445FC4B008026B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76F6D3DE2445FC4B008026B5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,10 +131,16 @@
 		769681AE244710BD00BC1477 /* AEListModel */ = {
 			isa = PBXGroup;
 			children = (
-				769681AF244710BD00BC1477 /* AEResultsChangeType.swift */,
-				769681C324477B9600BC1477 /* AEModelConverter.swift */,
-				769681C12447672400BC1477 /* AEListModelSectionInfo.swift */,
+				769681AF244710BD00BC1477 /* AEModelChangeType.swift */,
+				76C1C795244ED8F8000056F0 /* AEModelChange.swift */,
+				76C1C797244ED95B000056F0 /* AEModelMove.swift */,
+				76C1C793244ED682000056F0 /* AEModelEvent.swift */,
+				769681C12447672400BC1477 /* AESectionInfo.swift */,
+				76C1C799244EDDF5000056F0 /* AESectionInfoChange.swift */,
+				76C1C79B244EDF20000056F0 /* AESectionInfoMove.swift */,
+				76C1C79D244EDF49000056F0 /* AESectionInfoEvent.swift */,
 				769681B0244710BD00BC1477 /* AEListModelProvider.swift */,
+				769681C324477B9600BC1477 /* AEModelConverter.swift */,
 				769681C524477ECF00BC1477 /* AEFetchedResultsControllerOld.swift */,
 			);
 			path = AEListModel;
@@ -267,6 +285,7 @@
 				7683BA032448243D00B4B3F1 /* ManagedCar+CoreDataClass.swift in Sources */,
 				7683B9F8244821A800B4B3F1 /* Person.swift in Sources */,
 				7683BA042448243D00B4B3F1 /* ManagedCar+CoreDataProperties.swift in Sources */,
+				76C1C798244ED95B000056F0 /* AEModelMove.swift in Sources */,
 				7648E8F82449C8B6009EC944 /* DBProvider02Delegate.swift in Sources */,
 				7683BA052448243D00B4B3F1 /* ManagedManufacturer+CoreDataClass.swift in Sources */,
 				76B807D624485191007D8D40 /* DBProviderInterface.swift in Sources */,
@@ -283,13 +302,18 @@
 				76B807EA24488129007D8D40 /* OwnershipResultsController.swift in Sources */,
 				769681C424477B9600BC1477 /* AEModelConverter.swift in Sources */,
 				7648E8F42449C88E009EC944 /* DBProvider02.swift in Sources */,
-				769681C22447672400BC1477 /* AEListModelSectionInfo.swift in Sources */,
+				769681C22447672400BC1477 /* AESectionInfo.swift in Sources */,
 				769681B5244710BD00BC1477 /* AEListModelProvider.swift in Sources */,
 				7683B9F62448213400B4B3F1 /* Car.swift in Sources */,
 				7683BA022448243D00B4B3F1 /* ManagedPerson+CoreDataProperties.swift in Sources */,
+				76C1C796244ED8F8000056F0 /* AEModelChange.swift in Sources */,
+				76C1C79A244EDDF5000056F0 /* AESectionInfoChange.swift in Sources */,
 				76B807D8244851B2007D8D40 /* DBProviderDelegate.swift in Sources */,
+				76C1C794244ED682000056F0 /* AEModelEvent.swift in Sources */,
+				76C1C79E244EDF49000056F0 /* AESectionInfoEvent.swift in Sources */,
+				76C1C79C244EDF20000056F0 /* AESectionInfoMove.swift in Sources */,
 				76B807EC24488287007D8D40 /* NSFetchedResultsController+Ext.swift in Sources */,
-				769681B4244710BD00BC1477 /* AEResultsChangeType.swift in Sources */,
+				769681B4244710BD00BC1477 /* AEModelChangeType.swift in Sources */,
 				76B807E0244862D5007D8D40 /* DBProviderUtility.swift in Sources */,
 				76B807DA244854EF007D8D40 /* OwnershipListProvider.swift in Sources */,
 				7648E8FA2449D114009EC944 /* DBManager.swift in Sources */,

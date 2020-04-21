@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum AEResultsChangeType {
+enum AEModelChangeType {
     case insert
     case delete
     case move

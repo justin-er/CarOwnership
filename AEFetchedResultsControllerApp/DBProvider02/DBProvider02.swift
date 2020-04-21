@@ -15,10 +15,18 @@ class DBProvider02: NSObject {
     weak var delegate: DBProvider02Delegate?
     
     override init() {
-    
+        
         super.init()
         
+        NotificationCenter.default.addObserver(self,
+                         selector: #selector(accountsUpdated(notification:)),
+                         name: NSNotification.Name.NSManagedObjectContextDidSave,
+                         object: DBManager.shared.context)
+
+        
         let fetchRequest: NSFetchRequest<ManagedCar> = ManagedCar.fetchRequest()
+        let predicate = NSPredicate(format: "owner != nil")
+        fetchRequest.predicate = predicate
         let sort1 = NSSortDescriptor(key: #keyPath(ManagedCar.owner.name), ascending: true)
         let sort2 = NSSortDescriptor(key: #keyPath(ManagedCar.model), ascending: true)
         fetchRequest.sortDescriptors = [sort1, sort2]
@@ -29,7 +37,25 @@ class DBProvider02: NSObject {
                                          cacheName: nil)
         frc.delegate = self
     }
-
+    
+    @objc func accountsUpdated(notification: NSNotification) {
+        if let userInfo = notification.userInfo {
+            //InsertedObject
+            if let insertedObjects = userInfo[NSInsertedObjectsKey] as? Set<NSManagedObject>,  insertedObjects.count > 0 {
+                
+            }
+            
+            //DeletedObjects
+            if let deletedObjects = userInfo[NSDeletedObjectsKey] as? Set<NSManagedObject>,  deletedObjects.count > 0 {
+                
+            }
+            
+            //UpdatedObjects
+            if let updatedObjects = userInfo[NSUpdatedObjectsKey] as? Set<NSManagedObject>,  updatedObjects.count > 0 {
+                
+            }
+        }
+    }
 }
 
 extension DBProvider02: DBProvider02Interface {
@@ -57,7 +83,7 @@ extension DBProvider02: DBProvider02Interface {
         let toyota =    ManagedManufacturer(contex: DBManager.shared.context, name: "Toyota", ranking: 5)
         let porche =    ManagedManufacturer(contex: DBManager.shared.context, name: "Porche", ranking: 11)
         let bmw =       ManagedManufacturer(contex: DBManager.shared.context, name: "BMW", ranking: 7)
-
+        
         let calendar =  Calendar.current
         
         //Amir
@@ -78,7 +104,7 @@ extension DBProvider02: DBProvider02Interface {
         let _328 =          ManagedCar(contex: DBManager.shared.context, model: "328 M3", manufacturer: bmw, mileage: 22000, owner: nil)
         let _ =             ManagedPerson(context: DBManager.shared.context, name: "David", birthdate: davidDate!, cars: [_911Turbo, _328])
         
-        DBProvider.shared.saveContext()
+        DBManager.shared.saveContext()
     }
     
     func addSomething() {

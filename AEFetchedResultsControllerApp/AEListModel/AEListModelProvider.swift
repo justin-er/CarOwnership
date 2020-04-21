@@ -12,7 +12,7 @@ protocol AEListModelProvider {
     associatedtype Model where Model: Equatable
     
     var modelObjects: [Model]? { get }
-    var modelSections: [AEListModelSectionInfo]? { get }
+    var modelSections: [AESectionInfo]? { get }
     var modelSctionIndexTitles: [String] { get }
     
     func modelSection(forSectionIndexTitle title: String, at sectionIndex: Int) -> Int

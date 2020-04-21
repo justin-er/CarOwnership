@@ -82,7 +82,8 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //
+        let object = frc?.object(at: indexPath)
+        print(object?.objectID.uriRepresentation())
     }
 }
 

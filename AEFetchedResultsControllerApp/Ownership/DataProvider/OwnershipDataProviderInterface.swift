@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol DBProviderInterface: AEListModelProvider  {
+protocol OwnershipDataProviderInterface: AEListModelProvider  {
     func relaodData()
     func initializeDatabase()
     func deleteObject(at indexPath: IndexPath)

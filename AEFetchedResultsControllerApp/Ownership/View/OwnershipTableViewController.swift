@@ -9,10 +9,9 @@
 import UIKit
 import CoreData
 
-class TableViewController: UITableViewController {
+class OwnershipTableViewController: UITableViewController {
 
     var dataProvider2: DBProvider02Interface!
-    var dataProvider: DBProvider!
     var frc: NSFetchedResultsController<ManagedCar>?
     var addButtonItem: UIBarButtonItem!
     var saveButtonItem: UIBarButtonItem!
@@ -27,9 +26,7 @@ class TableViewController: UITableViewController {
         
         saveButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveSomething))
         self.navigationItem.rightBarButtonItems?.append(contentsOf: [saveButtonItem])
-        
-        dataProvider = DBProvider()
-        dataProvider.relaodData()
+
         
         let dbp = DBProvider02()
         dataProvider2 = dbp as DBProvider02Interface
@@ -91,7 +88,7 @@ class TableViewController: UITableViewController {
     }
 }
 
-extension TableViewController: DBProvider02Delegate {
+extension OwnershipTableViewController: DBProvider02Delegate {
     
     func providerDidReloadData(_ provider: DBProvider02Interface, frc: NSFetchedResultsController<ManagedCar>) {
         

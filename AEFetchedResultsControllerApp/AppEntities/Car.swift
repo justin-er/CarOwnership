@@ -10,5 +10,5 @@ import Foundation
 
 struct Car {
     var model: String
-    var mileage: Int32
+    var mileage: Int
 }

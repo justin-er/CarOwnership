@@ -14,6 +14,7 @@ protocol AEListModelProvider {
     var objects: [Model]? { get }
     var sctionIndexTitles: [String] { get }
     var sectionsCount: Int? { get }
+    
     func section(forSectionIndexTitle title: String, at sectionIndex: Int) -> Int
     func sectionIndexTitle(forSectionName sectionName: String) -> String?
     func object(at indexPath: IndexPath) -> Model

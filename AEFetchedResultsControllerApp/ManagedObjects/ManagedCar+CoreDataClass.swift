@@ -24,6 +24,6 @@ public class ManagedCar: NSManagedObject {
     
     var car: Car {
         return Car(model: self.model!,
-                   mileage: self.mileage)
+                   mileage: Int(self.mileage))
     }
 }

@@ -9,10 +9,10 @@
 import Foundation
 import CoreData
 
-class DBProvider: NSObject {
+class OwnershipDataProvider: NSObject {
     
     var frc: NSFetchedResultsController<ManagedCar>!
-    weak var delegate: DBProviderDelegate?
+    weak var delegate: OwnershipDataProviderDelegate?
     
     var modelEvent:          AEModelEvent<Ownership>? = nil
     var sectionInfoEvent:    AESectionInfoEvent? = nil
@@ -61,7 +61,7 @@ class DBProvider: NSObject {
     }
 }
 
-extension DBProvider: DBProviderInterface {
+extension OwnershipDataProvider: OwnershipDataProviderInterface {
     
     func relaodData() {
         do {
@@ -129,7 +129,7 @@ extension DBProvider: DBProviderInterface {
     }
 }
 
-extension DBProvider: AEListModelProvider {
+extension OwnershipDataProvider: AEListModelProvider {
     
     typealias Model = Ownership
     
@@ -170,7 +170,7 @@ extension DBProvider: AEListModelProvider {
     }
 }
 
-extension DBProvider: NSFetchedResultsControllerDelegate {
+extension OwnershipDataProvider: NSFetchedResultsControllerDelegate {
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         modelEvent =        AEModelEvent()

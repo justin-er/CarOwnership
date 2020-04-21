@@ -23,9 +23,8 @@ class DBProvider02: NSObject {
                          name: NSNotification.Name.NSManagedObjectContextDidSave,
                          object: DBManager.shared.context)
 
-        
         let fetchRequest: NSFetchRequest<ManagedCar> = ManagedCar.fetchRequest()
-        let predicate = NSPredicate(format: "owner != nil")
+        let predicate = NSPredicate(format: "owner != nil && manufacturer != nil")
         fetchRequest.predicate = predicate
         let sort1 = NSSortDescriptor(key: #keyPath(ManagedCar.owner.name), ascending: true)
         let sort2 = NSSortDescriptor(key: #keyPath(ManagedCar.model), ascending: true)

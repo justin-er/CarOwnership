@@ -19,4 +19,9 @@ public class ManagedManufacturer: NSManagedObject {
         self.name = name
         self.ranking = ranking
     }
+    
+    var manufacturer: Manufacturer {
+        return Manufacturer(name: self.name!,
+                            ranking: Int(self.ranking))
+    }
 }

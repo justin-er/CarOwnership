@@ -21,4 +21,9 @@ public class ManagedCar: NSManagedObject {
         self.mileage = mileage
         self.owner = owner
     }
+    
+    var car: Car {
+        return Car(model: self.model!,
+                   mileage: self.mileage)
+    }
 }

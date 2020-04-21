@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct AESectionInfoEvent<AESectionInfo> {
-    var didInsertSections =   [AESectionInfoChange<AESectionInfo>]()
-    var didDeleteSections =   [AESectionInfoChange<AESectionInfo>]()
-    var didUpdateSections =   [AESectionInfoChange<AESectionInfo>]()
-    var didMoveSections =     [AESectionInfoMove<AESectionInfo>]()
+struct AESectionInfoEvent {
+    var didInsertSections =   [AESectionInfoChange]()
+    var didDeleteSections =   [AESectionInfoChange]()
+    var didUpdateSections =   [AESectionInfoChange]()
+    var didMoveSections =     [AESectionInfoMove]()
 }

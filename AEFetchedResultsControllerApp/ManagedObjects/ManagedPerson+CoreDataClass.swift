@@ -20,4 +20,9 @@ public class ManagedPerson: NSManagedObject {
         self.birthdate = birthdate
         self.cars = cars as NSSet?
     }
+    
+    var person: Person {
+        return Person(birthdate: self.birthdate!,
+                      name: self.name)
+    }
 }

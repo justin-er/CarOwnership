@@ -11,12 +11,10 @@ import Foundation
 protocol AEListModelProvider {
     associatedtype Model where Model: Equatable
     
-    var modelObjects: [Model]? { get }
-    var modelSections: [AESectionInfo]? { get }
-    var modelSctionIndexTitles: [String] { get }
-    
-    func modelSection(forSectionIndexTitle title: String, at sectionIndex: Int) -> Int
-    func modelSectionIndexTitle(forSectionName sectionName: String) -> String?
-    func modelObject(at indexPath: IndexPath) -> Model
-    func indexPath(forModelObject object: Model) -> IndexPath?
+    var objects: [Model]? { get }
+    var sctionIndexTitles: [String] { get }
+    var sectionsCount: Int? { get }
+    func section(forSectionIndexTitle title: String, at sectionIndex: Int) -> Int
+    func sectionIndexTitle(forSectionName sectionName: String) -> String?
+    func object(at indexPath: IndexPath) -> Model
 }

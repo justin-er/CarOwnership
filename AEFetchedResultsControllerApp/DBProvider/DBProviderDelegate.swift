@@ -16,5 +16,5 @@ protocol DBProviderDelegate: class {
     
     func provider<Provider: AEListModelProvider>(_ provider: Provider, didChangeModels changeEvent: AEModelEvent<Ownership>)
     
-    func provider1<Provider: AEListModelProvider>(_ provider: Provider, didChangeSections changeEvent: AESectionInfoEvent<AESectionInfo>)
+    func provider1<Provider: AEListModelProvider>(_ provider: Provider, didChangeSections changeEvent: AESectionInfoEvent)
 }

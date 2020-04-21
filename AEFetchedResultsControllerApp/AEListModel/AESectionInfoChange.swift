@@ -8,7 +8,6 @@
 
 import Foundation
 
-struct AESectionInfoChange<AESectionInfo>  {
-    var section: AESectionInfo
+struct AESectionInfoChange  {
     var index: Int
 }

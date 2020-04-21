@@ -11,7 +11,8 @@ import CoreData
 
 class TableViewController: UITableViewController {
 
-    var dataProvider: DBProvider02Interface!
+    var dataProvider2: DBProvider02Interface!
+    var dataProvider: DBProvider!
     var frc: NSFetchedResultsController<ManagedCar>?
     var addButtonItem: UIBarButtonItem!
     var saveButtonItem: UIBarButtonItem!
@@ -27,21 +28,24 @@ class TableViewController: UITableViewController {
         saveButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveSomething))
         self.navigationItem.rightBarButtonItems?.append(contentsOf: [saveButtonItem])
         
+        dataProvider = DBProvider()
+        dataProvider.relaodData()
+        
         let dbp = DBProvider02()
-        dataProvider = dbp as DBProvider02Interface
+        dataProvider2 = dbp as DBProvider02Interface
         dbp.delegate = self
     }
     
     @objc func addSomething() {
-        dataProvider.addSomething()
+        dataProvider2.addSomething()
     }
     
     @objc func saveSomething() {
-        dataProvider.saveSomething()
+        dataProvider2.saveSomething()
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        dataProvider.relaodData()
+        dataProvider2.relaodData()
     }
     // MARK: - Table view data source
 
@@ -78,7 +82,7 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
         
-        dataProvider.deleteObject(at: indexPath)
+        dataProvider2.deleteObject(at: indexPath)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

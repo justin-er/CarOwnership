@@ -14,9 +14,11 @@ protocol OwnershipDataProviderInterface: class  {
     func object(at indexPath: IndexPath) -> Ownership
     
     var sectionIndexTitles: [String] { get }
-    var sectionsCount: Int? { get }
+    var numberOfSections: Int? { get }
     func section(forSectionIndexTitle title: String, at sectionIndex: Int) -> Int
     func sectionIndexTitle(forSectionName sectionName: String) -> String?
+    func numberOfRowsInSection(at index: Int) -> Int
+    func sectionName(at index: Int) -> String?
     
     func relaodData()
     

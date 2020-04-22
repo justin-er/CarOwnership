@@ -14,9 +14,6 @@ class OwnershipDataProvider: NSObject {
     var frc: NSFetchedResultsController<ManagedCar>!
     weak var delegate: OwnershipDataProviderDelegate?
     
-    var modelEvent:          AEModelEvent<Ownership>? = nil
-    var sectionInfoEvent:    AESectionInfoEvent? = nil
-    
     override init() {
         
         super.init()
@@ -59,23 +56,6 @@ class OwnershipDataProvider: NSObject {
             }
         }
     }
-}
-
-extension OwnershipDataProvider: OwnershipDataProviderInterface {
-    
-    func relaodData() {
-        do {
-            try frc.performFetch()
-            if frc.fetchedObjects?.count == 0 {
-                initializeDatabase()
-            } else {
-                delegate?.providerDidReloadData(self)
-            }
-        } catch {
-            let nserror = error as NSError
-            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-        }
-    }
     
     func initializeDatabase() {
         print(frc.sections!.count)
@@ -110,6 +90,71 @@ extension OwnershipDataProvider: OwnershipDataProviderInterface {
         DBManager.shared.saveContext()
     }
     
+}
+
+extension OwnershipDataProvider: OwnershipDataProviderInterface {
+
+    var objects: [Ownership]? {
+        guard let objects = frc.fetchedObjects else {
+            return nil
+        }
+        
+        return objects.map { managedCar in
+            return Ownership(person: managedCar.owner!.makePerson(),
+                             car: managedCar.makeCar(),
+                             manufacturer: managedCar.manufacturer!.makeManufacturer())
+        }
+    }
+    
+    var numberOfSections: Int? {
+        return frc.sections?.count
+    }
+    
+    var sectionIndexTitles: [String] {
+        return frc.sectionIndexTitles
+    }
+    
+    func section(forSectionIndexTitle title: String, at sectionIndex: Int) -> Int {
+        return frc.section(forSectionIndexTitle: title, at: sectionIndex)
+    }
+    
+    func sectionIndexTitle(forSectionName sectionName: String) -> String? {
+        return frc.sectionIndexTitle(forSectionName: sectionName)
+    }
+    
+    func numberOfRowsInSection(at index: Int) -> Int {
+        guard let sections = frc.sections else { return 0 }
+        guard let objects = sections[index].objects else { return 0 }
+        
+        return objects.count
+    }
+    
+    func sectionName(at index: Int) -> String? {
+        return frc.sections?[index].name
+    }
+    
+    func object(at indexPath: IndexPath) -> Ownership {
+        let managedCar = frc.object(at: indexPath)
+        let ownership = Ownership(person: managedCar.owner!.makePerson(),
+                                  car: managedCar.makeCar(),
+                                  manufacturer: managedCar.manufacturer!.makeManufacturer())
+        return ownership
+    }
+    
+    func relaodData() {
+        do {
+            try frc.performFetch()
+            if frc.fetchedObjects?.count == 0 {
+                initializeDatabase()
+            } else {
+                delegate?.providerDidReloadData(self)
+            }
+        } catch {
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        }
+    }
+    
     func addSomething() {
         let firstCar = frc.object(at: IndexPath(row: 0, section: 0)) as ManagedCar
         let owner = firstCar.owner!
@@ -129,81 +174,21 @@ extension OwnershipDataProvider: OwnershipDataProviderInterface {
     }
 }
 
-extension OwnershipDataProvider: AEListModelProvider {
-
-    typealias Model = Ownership
-    
-    var objects: [Ownership]? {
-        guard let objects = frc.fetchedObjects else {
-            return nil
-        }
-        
-        return objects.map { managedCar in
-            return Ownership(person: managedCar.owner!.person,
-                             car: managedCar.car,
-                             manufacturer: managedCar.manufacturer!.manufacturer)
-        }
-    }
-    
-    var sectionsCount: Int? {
-        return frc.sections?.count
-    }
-    
-    var sectionIndexTitles: [String] {
-        return frc.sectionIndexTitles
-    }
-    
-    func section(forSectionIndexTitle title: String, at sectionIndex: Int) -> Int {
-        return frc.section(forSectionIndexTitle: title, at: sectionIndex)
-    }
-    
-    func sectionIndexTitle(forSectionName sectionName: String) -> String? {
-        return frc.sectionIndexTitle(forSectionName: sectionName)
-    }
-    
-    func object(at indexPath: IndexPath) -> Ownership {
-        let managedCar = frc.object(at: indexPath)
-        let ownership = Ownership(person: managedCar.owner!.person,
-                                  car: managedCar.car,
-                                  manufacturer: managedCar.manufacturer!.manufacturer)
-        return ownership
-    }
-}
-
 extension OwnershipDataProvider: NSFetchedResultsControllerDelegate {
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        modelEvent =        AEModelEvent()
-        sectionInfoEvent =   AESectionInfoEvent()
         delegate?.providerWillChangeContent(self)
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         
         let managedCar = anObject as! ManagedCar
-        let ownership = Ownership(person: managedCar.owner!.person,
-                                  car: managedCar.car,
-                                  manufacturer: managedCar.manufacturer!.manufacturer)
-        
-        switch type {
-        case .insert:
-            let event = AEModelChange<Ownership>(model: ownership, indexPath: newIndexPath!)
-            modelEvent?.didInsertModels.append(event)
-            
-        case .update:
-            let event = AEModelChange<Ownership>(model: ownership, indexPath: indexPath!)
-            modelEvent?.didUpdateModels.append(event)
-            
-        case .delete:
-            let event = AEModelChange<Ownership>(model: ownership, indexPath: indexPath!)
-            modelEvent?.didDeleteModels.append(event)
-            
-        case .move:
-            let event = AEModelMove<Ownership>(model: ownership, indexPath: indexPath!, newIndexPath: newIndexPath!)
-            modelEvent?.didMoveModels.append(event)
-            
-        default:
-            break
+        var ownership: Ownership? = nil
+        if let managedPerson = managedCar.owner, let managedManufacturer = managedCar.manufacturer {
+            let car             = managedCar.makeCar()
+            let person          = managedPerson.makePerson()
+            let manufacturer    = managedManufacturer.makeManufacturer()
+            ownership = Ownership(person: person, car: car, manufacturer: manufacturer)
         }
         
         let changeType: AEModelChangeType
@@ -224,26 +209,6 @@ extension OwnershipDataProvider: NSFetchedResultsControllerDelegate {
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-    
-        switch type {
-        case .insert:
-            let event = AESectionInfoChange(index: sectionIndex)
-            sectionInfoEvent?.didInsertSections.append(event)
-            
-        case .update:
-            let event = AESectionInfoChange(index: sectionIndex)
-            sectionInfoEvent?.didUpdateSections.append(event)
-            
-        case .delete:
-            let event = AESectionInfoChange(index: sectionIndex)
-            sectionInfoEvent?.didDeleteSections.append(event)
-            
-        case .move:
-            print("I don't know what do with section movement at the moment!")
-            
-        default:
-            break
-        }
         
         let changeType: AEModelChangeType
         switch type {
@@ -263,16 +228,6 @@ extension OwnershipDataProvider: NSFetchedResultsControllerDelegate {
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        
-//        if let modelEvent = self.modelEvent {
-//            delegate?.provider(self, didChangeModels: modelEvent)
-//            self.modelEvent = nil
-//        }
-//
-//        if let sectionInfoEvent = self.sectionInfoEvent {
-//            delegate?.provider(self, didChangeSections: sectionInfoEvent)
-//            self.sectionInfoEvent = nil
-//        }
         
         delegate?.providerDidChangeContent(self)
     }

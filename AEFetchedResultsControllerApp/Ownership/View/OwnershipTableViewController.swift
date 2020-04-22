@@ -11,8 +11,8 @@ import CoreData
 
 class OwnershipTableViewController: UITableViewController {
 
-    var dataProvider2: DBProvider02Interface!
-    var frc: NSFetchedResultsController<ManagedCar>?
+    var presenter: OwnershipPresenterInterface?
+    
     var addButtonItem: UIBarButtonItem!
     var saveButtonItem: UIBarButtonItem!
     
@@ -26,85 +26,78 @@ class OwnershipTableViewController: UITableViewController {
         
         saveButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveSomething))
         self.navigationItem.rightBarButtonItems?.append(contentsOf: [saveButtonItem])
-
-        
-        let dbp = DBProvider02()
-        dataProvider2 = dbp as DBProvider02Interface
-        dbp.delegate = self
     }
     
     @objc func addSomething() {
-        dataProvider2.addSomething()
+        presenter?.addSomething()
     }
     
     @objc func saveSomething() {
-        dataProvider2.saveSomething()
+        presenter?.saveSomething()
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        dataProvider2.relaodData()
+        presenter?.relaodData()
     }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return frc?.sections?.count ?? 0
+        return presenter?.numberOfSections ?? 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let sections = frc?.sections else {
-            return 0
-        }
-        let section = sections[section]
-        return section.numberOfObjects
+        guard let presenter = self.presenter else { return 0 }
+        return presenter.numberOfRowsInSection(at: section)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CarOwnerCell", for: indexPath) as! CarOwnerCell
 
-        guard let frc = self.frc else {
+        guard let presenter = self.presenter else {
             return cell
         }
-        let car = frc.object(at: indexPath)
-        cell.car.text = car.model
-        cell.manufacturer.text = car.manufacturer?.name
-        cell.mileage.text = "\(car.mileage)"
+        
+        let ownership = presenter.object(at: indexPath)
+        cell.car.text = ownership.car.model
+        cell.manufacturer.text = ownership.manufacturer.name
+        cell.mileage.text = "\(ownership.car.mileage)"
 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return frc?.sections?[section].name
+        return presenter?.sectionName(at: section)
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
         guard editingStyle == .delete else { return }
         
-        dataProvider2.deleteObject(at: indexPath)
+        presenter?.deleteObject(at: indexPath)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let object = frc?.object(at: indexPath)
-        print(object?.objectID.uriRepresentation())
+        
     }
 }
 
-extension OwnershipTableViewController: DBProvider02Delegate {
+//MARK:- OwnershipPresenterDelegate
+extension OwnershipTableViewController: OwnershipPresenterDelegate {
     
-    func providerDidReloadData(_ provider: DBProvider02Interface, frc: NSFetchedResultsController<ManagedCar>) {
-        
-        self.frc = frc
+    func presenterDidReloadData(_ presenter: OwnershipPresenterInterface) {
         tableView.reloadData()
     }
     
-    func providerWillChangeContent(_ provider: DBProvider02Interface, frc: NSFetchedResultsController<ManagedCar>) {
-        
-        self.frc = frc
+    func presenterDidFilterData(_ presenter: OwnershipPresenterInterface) {
+        tableView.reloadData()
+    }
+    
+    func presenterWillChangeContent(_ presenter: OwnershipPresenterInterface) {
         tableView.beginUpdates()
     }
     
-    func provider(_ provider: DBProvider02Interface, frc: NSFetchedResultsController<ManagedCar>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+    func presenter(_ presenter: OwnershipPresenterInterface, didChange ownership: OwnershipViewModel?, at indexPath: IndexPath?, for type: AEModelChangeType, newIndexPath: IndexPath?) {
         
-        self.frc = frc
         switch type {
         case .delete:
             tableView.deleteRows(at: [indexPath!], with: .automatic)
@@ -112,14 +105,13 @@ extension OwnershipTableViewController: DBProvider02Delegate {
             tableView.insertRows(at: [newIndexPath!], with: .automatic)
         case .update:
             tableView.reloadRows(at: [indexPath!], with: .automatic)
-        default:
-            break
+        case .move:
+            tableView.moveRow(at: indexPath!, to: newIndexPath!)
         }
     }
     
-    func provider(_ provider: DBProvider02Interface, frc: NSFetchedResultsController<ManagedCar>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+    func presenterDidChangeSection(_ presenter: OwnershipPresenterInterface, at sectionIndex: Int, for type: AEModelChangeType) {
         
-        self.frc = frc
         switch type {
         case .update:
             tableView.reloadSections(IndexSet([sectionIndex]), with: .automatic)
@@ -132,9 +124,9 @@ extension OwnershipTableViewController: DBProvider02Delegate {
         }
     }
     
-    func providerDidChangeContent(_ provider: DBProvider02Interface, frc: NSFetchedResultsController<ManagedCar>) {
-        
-        self.frc = frc
+    func presenterDidChangeContent(_ presenter: OwnershipPresenterInterface) {
         tableView.endUpdates()
     }
+    
+    
 }

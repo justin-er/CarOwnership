@@ -14,7 +14,7 @@ class DBManager {
     var persistentContainer: NSPersistentContainer
     
     private init() {
-        persistentContainer = NSPersistentContainer(name: "AEFetchedResultsControllerApp")
+        persistentContainer = NSPersistentContainer(name: "DBDataModel")
         persistentContainer.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")

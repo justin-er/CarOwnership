@@ -20,7 +20,7 @@ protocol OwnershipPresenterDelegate: class {
     
     func presenterWillChangeContent(_ presenter: OwnershipPresenterInterface)
     
-    func presenter(_ presenter: OwnershipPresenterInterface, didChange anObject: OwnershipViewModel, at indexPath: IndexPath?, for type: AEModelChangeType, newIndexPath: IndexPath?)
+    func presenter(_ presenter: OwnershipPresenterInterface, didChange ownership: OwnershipViewModel?, at indexPath: IndexPath?, for type: AEModelChangeType, newIndexPath: IndexPath?)
     
     func presenterDidChangeSection(_ presenter: OwnershipPresenterInterface, at sectionIndex: Int, for type: AEModelChangeType)
     

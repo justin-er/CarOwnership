@@ -18,6 +18,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        let ownershipPreseneter         = OwnershipPresenter()
+        let ownershipDataProvider       = OwnershipDataProvider()
+        let navigationController        = self.window?.rootViewController as! UINavigationController
+        let ownershipViewController     = navigationController.viewControllers[0] as! OwnershipTableViewController
+        
+        ownershipViewController.presenter   = ownershipPreseneter as OwnershipPresenterInterface
+        ownershipPreseneter.delegate        = ownershipViewController as OwnershipPresenterDelegate
+        ownershipPreseneter.dataProvider    = ownershipDataProvider as OwnershipDataProviderInterface
+        ownershipDataProvider.delegate      = ownershipPreseneter
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

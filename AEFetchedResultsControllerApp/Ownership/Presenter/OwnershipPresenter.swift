@@ -13,6 +13,8 @@ class OwnershipPresenter : OwnershipPresenterInterface {
     var dataProvider: OwnershipDataProviderInterface?
     weak var delegate: OwnershipPresenterDelegate?
     
+    let birthdateFormat = "dd LL yyyy"
+    
     var objects: [OwnershipViewModel]? {
         
         guard let objects = self.dataProvider?.objects else {
@@ -20,7 +22,7 @@ class OwnershipPresenter : OwnershipPresenterInterface {
         }
         
         return objects.map { ownership in
-            return OwnershipViewModel(ownerhsip: ownership)
+            return OwnershipViewModel(by: ownership, dateFormat: birthdateFormat)
         }
     }
     
@@ -30,7 +32,7 @@ class OwnershipPresenter : OwnershipPresenterInterface {
         }
         
         let ownership = dataProvider.object(at: indexPath)
-        return OwnershipViewModel(ownerhsip: ownership)
+        return OwnershipViewModel(by: ownership, dateFormat: birthdateFormat)
     }
     
     var sctionIndexTitles: [String] {
@@ -41,8 +43,8 @@ class OwnershipPresenter : OwnershipPresenterInterface {
         return dataProvider.sectionIndexTitles
     }
     
-    var sectionsCount: Int? {
-        return dataProvider?.sectionsCount
+    var numberOfSections: Int? {
+        return dataProvider?.numberOfSections
     }
     
     func section(forSectionIndexTitle title: String, at sectionIndex: Int) -> Int {
@@ -55,6 +57,15 @@ class OwnershipPresenter : OwnershipPresenterInterface {
     
     func sectionIndexTitle(forSectionName sectionName: String) -> String? {
         return dataProvider?.sectionIndexTitle(forSectionName: sectionName)
+    }
+    
+    func numberOfRowsInSection(at index: Int) -> Int {
+        guard let dataProvider = dataProvider else { return 0 }
+        return dataProvider.numberOfRowsInSection(at: index)
+    }
+    
+    func sectionName(at index: Int) -> String? {
+        return dataProvider?.sectionName(at: index)
     }
     
     func relaodData() {
@@ -88,9 +99,13 @@ extension OwnershipPresenter: OwnershipDataProviderDelegate {
         delegate?.presenterWillChangeContent(self)
     }
     
-    func provider(_ provider: OwnershipDataProviderInterface, didChange anObject: Ownership, at indexPath: IndexPath?, for type: AEModelChangeType, newIndexPath: IndexPath?) {
+    func provider(_ provider: OwnershipDataProviderInterface, didChange ownership: Ownership?, at indexPath: IndexPath?, for type: AEModelChangeType, newIndexPath: IndexPath?) {
         
-        let ownershipViewModel = OwnershipViewModel(ownerhsip: anObject)
+        var ownershipViewModel: OwnershipViewModel? = nil
+        if let ownership = ownership {
+            ownershipViewModel = OwnershipViewModel(by: ownership, dateFormat: birthdateFormat)
+        }
+        
         delegate?.presenter(self, didChange: ownershipViewModel, at: indexPath, for: type, newIndexPath: newIndexPath)
     }
     

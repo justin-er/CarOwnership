@@ -12,7 +12,7 @@ struct CarViewModel {
     var model:      String
     var mileage:    Int
     
-    init(car: Car) {
+    init(by car: Car) {
         self.model =    car.model
         self.mileage =  car.mileage
     }

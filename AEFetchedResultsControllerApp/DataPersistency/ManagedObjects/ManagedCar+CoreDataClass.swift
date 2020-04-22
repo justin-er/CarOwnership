@@ -21,9 +21,9 @@ public class ManagedCar: NSManagedObject {
         self.mileage = mileage
         self.owner = owner
     }
-    
-    var car: Car {
+
+    func makeCar() -> Car {
         return Car(model: self.model!,
-                   mileage: Int(self.mileage))
+        mileage: Int(self.mileage))
     }
 }

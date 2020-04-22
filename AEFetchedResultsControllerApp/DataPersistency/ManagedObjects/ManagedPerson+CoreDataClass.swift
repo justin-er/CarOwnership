@@ -21,8 +21,8 @@ public class ManagedPerson: NSManagedObject {
         self.cars = cars as NSSet?
     }
     
-    var person: Person {
+    func makePerson() -> Person {
         return Person(birthdate: self.birthdate!,
-                      name: self.name!)
+        name: self.name!)
     }
 }

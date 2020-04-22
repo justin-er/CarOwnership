@@ -11,21 +11,19 @@ import Foundation
 struct PersonViewModel {
     var birthdate:  String
     var name:       String
-    private var formatString = "dd LL yyyy"
     
-    init(person: Person) {
-        self.birthdate =    getBirthdate(from: person.birthdate)
+    private var dateFormatter = DateFormatter()
+    
+    init(by person: Person, dateFormat: String) {
+        self.dateFormatter.dateFormat = dateFormat
+        self.birthdate =    dateFormatter.string(from: person.birthdate)
         self.name =         person.name
     }
     
-    func getBirthdate(from date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = formatString
-        return dateFormatter.string(from: date)
-    }
-    
     func makePerson() -> Person {
-        let person = Person(birthdate: <#T##Date#>,
-                            name: <#T##String#>)
+        let birthdate = dateFormatter.date(from: self.birthdate)
+        let person = Person(birthdate: birthdate!, name: self.name)
+        
+        return person
     }
 }

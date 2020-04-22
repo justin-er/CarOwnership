@@ -11,4 +11,10 @@ import Foundation
 struct ManufacturerViewModel {
     var name:       String
     var ranking:    Int
+
+    init(by manufacturer: Manufacturer) {
+        self.name       = manufacturer.name
+        self.ranking    = manufacturer.ranking
+    }
 }
+

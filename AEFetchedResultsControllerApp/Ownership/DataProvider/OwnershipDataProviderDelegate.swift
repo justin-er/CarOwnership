@@ -20,7 +20,7 @@ protocol OwnershipDataProviderDelegate: class {
     
     func providerWillChangeContent(_ provider: OwnershipDataProviderInterface)
     
-    func provider(_ provider: OwnershipDataProviderInterface, didChange anObject: Ownership, at indexPath: IndexPath?, for type: AEModelChangeType, newIndexPath: IndexPath?)
+    func provider(_ provider: OwnershipDataProviderInterface, didChange ownership: Ownership?, at indexPath: IndexPath?, for type: AEModelChangeType, newIndexPath: IndexPath?)
     
     func providerDidChangeSection(_ provider: OwnershipDataProviderInterface, at sectionIndex: Int, for type: AEModelChangeType)
     

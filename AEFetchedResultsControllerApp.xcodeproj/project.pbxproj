@@ -157,19 +157,19 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		763690CF244F1F5F002A7041 /* ViewModel */ = {
+		763690CF244F1F5F002A7041 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				76EC1BF22452D6C900A8453C /* ViewModelError.swift */,
+				76EC1BFF24535DC400A8453C /* Support */,
 				763690D0244F1F6C002A7041 /* CarViewModel.swift */,
 				763690D2244F1F76002A7041 /* PersonViewModel.swift */,
 				763690D4244F1F85002A7041 /* ManufactrurerViewModel.swift */,
 				763690CD244F1F28002A7041 /* OwnershipViewModel.swift */,
 			);
-			path = ViewModel;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		7683B9F42448212000B4B3F1 /* AppEntities */ = {
+		7683B9F42448212000B4B3F1 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
 				7683B9F52448213400B4B3F1 /* Car.swift */,
@@ -177,7 +177,7 @@
 				7683B9F9244821F500B4B3F1 /* Manufacturer.swift */,
 				76B807DD24486256007D8D40 /* Ownership.swift */,
 			);
-			path = AppEntities;
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		76925F30245076DE00A593AC /* AppSupport */ = {
@@ -201,14 +201,6 @@
 			path = DataPersistency;
 			sourceTree = "<group>";
 		};
-		769681AE244710BD00BC1477 /* AETypes */ = {
-			isa = PBXGroup;
-			children = (
-				769681AF244710BD00BC1477 /* AEModelChangeType.swift */,
-			);
-			path = AETypes;
-			sourceTree = "<group>";
-		};
 		76B807D42448516A007D8D40 /* DataProvider */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,7 +216,6 @@
 			children = (
 				760B50D12452BC5200C2187F /* Composer */,
 				76C1C7A2244F1ADC000056F0 /* View */,
-				763690CF244F1F5F002A7041 /* ViewModel */,
 				76C1C7A3244F1AEB000056F0 /* Presenter */,
 				76B807D42448516A007D8D40 /* DataProvider */,
 			);
@@ -258,6 +249,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		76EC1BFF24535DC400A8453C /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				769681AF244710BD00BC1477 /* AEModelChangeType.swift */,
+				76EC1BF22452D6C900A8453C /* ViewModelError.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		76F6D3D02445FC4B008026B5 = {
 			isa = PBXGroup;
 			children = (
@@ -279,8 +279,8 @@
 			children = (
 				76F6D3ED2445FC4F008026B5 /* Info.plist */,
 				76925F30245076DE00A593AC /* AppSupport */,
-				7683B9F42448212000B4B3F1 /* AppEntities */,
-				769681AE244710BD00BC1477 /* AETypes */,
+				7683B9F42448212000B4B3F1 /* Entities */,
+				763690CF244F1F5F002A7041 /* ViewModels */,
 				76C1C7A1244F1AC9000056F0 /* Ownership */,
 				760B50D62452C88C00C2187F /* EditMileage */,
 				76925F33245077DB00A593AC /* DataPersistency */,

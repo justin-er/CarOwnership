@@ -12,6 +12,7 @@ protocol OwnershipPresenterInterface  {
     
     var objects: [OwnershipViewModel]? { get }
     func object(at indexPath: IndexPath) -> OwnershipViewModel
+    func objectUrl(at indexPath: IndexPath) -> (ownerUrl: URL?, carUrl: URL?, manufacturerUrl: URL?)
     
     var sctionIndexTitles: [String] { get }
     var numberOfSections: Int? { get }

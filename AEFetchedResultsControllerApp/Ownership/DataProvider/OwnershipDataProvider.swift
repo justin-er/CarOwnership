@@ -141,6 +141,25 @@ extension OwnershipDataProvider: OwnershipDataProviderInterface {
         return ownership
     }
     
+    func objectUrl(at indexPath: IndexPath) -> (ownerUrl: URL?, carUrl: URL?, manufacturerUrl: URL?) {
+        
+        let managedCar = frc.object(at: indexPath)
+        let carUrl                      = managedCar.objectID.uriRepresentation()
+        var ownerUrl: URL?              = nil
+        var manufacturerUrl: URL?       = nil
+        
+        if let managedPerson = managedCar.owner {
+            ownerUrl = managedPerson.objectID.uriRepresentation()
+        }
+        
+        if let managedManufacturere = managedCar.manufacturer {
+            manufacturerUrl = managedManufacturere.objectID.uriRepresentation()
+        }
+        
+        return (ownerUrl, carUrl, manufacturerUrl)
+        
+    }
+    
     func relaodData() {
         do {
             try frc.performFetch()

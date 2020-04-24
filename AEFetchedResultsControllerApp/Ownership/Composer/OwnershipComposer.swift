@@ -13,9 +13,8 @@ class OwnershipComposer {
     
     static func makeModule() -> OwnershipTableViewController {
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "Ownership", bundle: nil)
         let ownershipViewController = storyboard.instantiateViewController(identifier: "OwnershipTableViewController") as! OwnershipTableViewController
-        
         
         let ownershipPreseneter         = OwnershipPresenter()
         let ownershipDataProvider       = OwnershipDataProvider()

@@ -12,6 +12,7 @@ protocol OwnershipDataProviderInterface: class  {
     
     var objects: [Ownership]? { get }
     func object(at indexPath: IndexPath) -> Ownership
+    func objectUrl(at indexPath: IndexPath) -> (ownerUrl: URL?, carUrl: URL?, manufacturerUrl: URL?)
     
     var sectionIndexTitles: [String] { get }
     var numberOfSections: Int? { get }

@@ -35,6 +35,14 @@ class OwnershipPresenter : OwnershipPresenterInterface {
         return OwnershipViewModel(by: ownership, dateFormat: birthdateFormat)
     }
     
+    func objectUrl(at indexPath: IndexPath) -> (ownerUrl: URL?, carUrl: URL?, manufacturerUrl: URL?) {
+        guard let dataProvider = self.dataProvider else {
+            return (nil, nil, nil)
+        }
+        
+        return dataProvider.objectUrl(at: indexPath)
+    }
+    
     var sctionIndexTitles: [String] {
         guard let dataProvider = self.dataProvider else {
             fatalError("There is no data provider")

@@ -27,6 +27,7 @@ class DBManager {
     var context: NSManagedObjectContext {
         return self.persistentContainer.viewContext
     }
+
     
     // MARK: - Core Data Saving support
 
@@ -40,5 +41,9 @@ class DBManager {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+    
+    func objectID(with url: URL) -> NSManagedObjectID? {
+        return persistentContainer.persistentStoreCoordinator.managedObjectID(forURIRepresentation: url)
     }
 }

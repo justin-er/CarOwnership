@@ -16,5 +16,15 @@ struct ManufacturerViewModel {
         self.name       = manufacturer.name
         self.ranking    = manufacturer.ranking
     }
+    
+    func makeManufacturer() -> Manufacturer {
+        return Manufacturer(name: self.name,
+                                        ranking: self.ranking)
+    }
+    
+    func update(manufacturer: inout Manufacturer) {
+        manufacturer.name       = self.name
+        manufacturer.ranking    = self.ranking
+    }
 }
 

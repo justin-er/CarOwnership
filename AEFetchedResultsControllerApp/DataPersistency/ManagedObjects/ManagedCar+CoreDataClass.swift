@@ -22,8 +22,26 @@ public class ManagedCar: NSManagedObject {
         self.owner = owner
     }
 
-    func makeCar() -> Car {
+    func makeCar() -> Car? {
+        
+        guard let manufacturer = self.manufacturer else {
+            return nil
+        }
+        
         return Car(model: self.model!,
-        mileage: Int(self.mileage))
+                   mileage: Int(self.mileage),
+                   manufacturer: manufacturer.makeManufacturer())
+    }
+    
+    func update(car: inout Car) {
+        car.mileage     = Int(self.mileage)
+        car.model       = self.model!
+        self.manufacturer?.update(manufacturer: &car.manufacturer)
+    }
+    
+    func update(by car: Car) {
+        self.mileage    = Int32(car.mileage)
+        self.model      = car.model
+        self.manufacturer?.update(by: car.manufacturer)
     }
 }

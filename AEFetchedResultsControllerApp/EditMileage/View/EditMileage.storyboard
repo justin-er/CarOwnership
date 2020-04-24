@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Edit Mileage-->
+        <scene sceneID="8pV-ok-O4O">
+            <objects>
+                <viewController storyboardIdentifier="EditMileageViewController" title="Edit Mileage" id="PS4-Sz-lBM" customClass="EditMileageViewController" customModule="AEFetchedResultsControllerApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8m8-AL-j9i">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manufacturer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rce-j0-JgL">
+                                <rect key="frame" x="20" y="64" width="120" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="oSP-kU-zcO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Model" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F7h-aU-f5r">
+                                <rect key="frame" x="20" y="100" width="120" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="cZO-Gg-9Ak"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mileage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3zz-yU-F47">
+                                <rect key="frame" x="20" y="136" width="120" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="VDp-99-GN5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="manufacturerLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJ9-qH-LC4">
+                                <rect key="frame" x="160" y="61.5" width="234" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="modelLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZa-Av-FSr">
+                                <rect key="frame" x="160" y="97.5" width="234" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UuL-Ip-quT">
+                                <rect key="frame" x="160" y="127" width="234" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Rce-j0-JgL" firstAttribute="top" secondItem="zVh-O7-HeP" secondAttribute="top" constant="20" id="39m-gf-mid"/>
+                            <constraint firstItem="zVh-O7-HeP" firstAttribute="trailing" secondItem="HZa-Av-FSr" secondAttribute="trailing" constant="20" id="6W3-wv-P49"/>
+                            <constraint firstItem="3zz-yU-F47" firstAttribute="leading" secondItem="zVh-O7-HeP" secondAttribute="leading" constant="20" id="DRj-Sr-OZd"/>
+                            <constraint firstItem="ZJ9-qH-LC4" firstAttribute="centerY" secondItem="Rce-j0-JgL" secondAttribute="centerY" id="G0h-4D-Uav"/>
+                            <constraint firstItem="UuL-Ip-quT" firstAttribute="centerY" secondItem="3zz-yU-F47" secondAttribute="centerY" id="GFR-qt-nfw"/>
+                            <constraint firstItem="zVh-O7-HeP" firstAttribute="trailing" secondItem="UuL-Ip-quT" secondAttribute="trailing" constant="20" id="H91-3p-EBU"/>
+                            <constraint firstItem="Rce-j0-JgL" firstAttribute="leading" secondItem="zVh-O7-HeP" secondAttribute="leading" constant="20" id="IIP-eZ-DkN"/>
+                            <constraint firstItem="ZJ9-qH-LC4" firstAttribute="leading" secondItem="Rce-j0-JgL" secondAttribute="trailing" constant="20" id="NFK-UE-qVt"/>
+                            <constraint firstItem="3zz-yU-F47" firstAttribute="top" secondItem="F7h-aU-f5r" secondAttribute="bottom" constant="20" id="PN9-qt-dAT"/>
+                            <constraint firstItem="F7h-aU-f5r" firstAttribute="top" secondItem="Rce-j0-JgL" secondAttribute="bottom" constant="20" id="TFb-D7-KcU"/>
+                            <constraint firstItem="HZa-Av-FSr" firstAttribute="leading" secondItem="F7h-aU-f5r" secondAttribute="trailing" constant="20" id="eGu-lq-C2h"/>
+                            <constraint firstItem="HZa-Av-FSr" firstAttribute="centerY" secondItem="F7h-aU-f5r" secondAttribute="centerY" id="fa3-rt-1ml"/>
+                            <constraint firstItem="zVh-O7-HeP" firstAttribute="trailing" secondItem="ZJ9-qH-LC4" secondAttribute="trailing" constant="20" id="kj8-5G-LMl"/>
+                            <constraint firstItem="F7h-aU-f5r" firstAttribute="leading" secondItem="zVh-O7-HeP" secondAttribute="leading" constant="20" id="rBc-po-mVk"/>
+                            <constraint firstItem="UuL-Ip-quT" firstAttribute="leading" secondItem="3zz-yU-F47" secondAttribute="trailing" constant="20" id="tUn-b0-1AJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zVh-O7-HeP"/>
+                    </view>
+                    <connections>
+                        <outlet property="manufacturerLabel" destination="ZJ9-qH-LC4" id="GuG-Ug-fUS"/>
+                        <outlet property="mileageTextField" destination="UuL-Ip-quT" id="oFb-Un-IvE"/>
+                        <outlet property="modelLabel" destination="HZa-Av-FSr" id="iPp-zt-l8i"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="phZ-Lq-OOM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-62.318840579710148" y="46.875"/>
+        </scene>
+    </scenes>
+</document>

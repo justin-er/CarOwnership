@@ -24,4 +24,14 @@ public class ManagedManufacturer: NSManagedObject {
         return Manufacturer(name: self.name!,
         ranking: Int(self.ranking))
     }
+    
+    func update(manufacturer: inout Manufacturer) {
+        manufacturer.name       = self.name!
+        manufacturer.ranking    = Int(self.ranking)
+    }
+    
+    func update(by manufacturer: Manufacturer) {
+        self.name       = manufacturer.name
+        self.ranking    = Int16(manufacturer.ranking)
+    }
 }

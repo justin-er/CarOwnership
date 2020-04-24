@@ -93,16 +93,15 @@ class OwnershipDataProvider: NSObject {
 }
 
 extension OwnershipDataProvider: OwnershipDataProviderInterface {
-
+    
     var objects: [Ownership]? {
         guard let objects = frc.fetchedObjects else {
             return nil
         }
         
         return objects.map { managedCar in
-            return Ownership(person: managedCar.owner!.makePerson(),
-                             car: managedCar.makeCar(),
-                             manufacturer: managedCar.manufacturer!.makeManufacturer())
+            return Ownership(owner: managedCar.owner!.makePerson(),
+                             car: managedCar.makeCar()!)
         }
     }
     
@@ -135,9 +134,8 @@ extension OwnershipDataProvider: OwnershipDataProviderInterface {
     
     func object(at indexPath: IndexPath) -> Ownership {
         let managedCar = frc.object(at: indexPath)
-        let ownership = Ownership(person: managedCar.owner!.makePerson(),
-                                  car: managedCar.makeCar(),
-                                  manufacturer: managedCar.manufacturer!.makeManufacturer())
+        let ownership = Ownership(owner: managedCar.owner!.makePerson(),
+                                  car: managedCar.makeCar()!)
         return ownership
     }
     
@@ -180,6 +178,56 @@ extension OwnershipDataProvider: OwnershipDataProviderInterface {
         DBManager.shared.context.delete(car)
         DBManager.shared.saveContext()
     }
+    
+    func deleteObject(with url: URL) {
+        
+        guard let objectID = DBManager.shared.objectID(with: url) else { return }
+        guard let object = DBManager.shared.context.registeredObject(for: objectID) else { return }
+        
+        DBManager.shared.context.delete(object)
+        DBManager.shared.saveContext()
+    }
+    
+    func updateObject(at indexPath: IndexPath, by data: Ownership) {
+        
+        let object = frc.object(at: indexPath)
+        DBManager.shared.context.delete(object)
+        DBManager.shared.saveContext()
+    }
+    
+    func updateObject(with url: URL, by data: Ownership) {
+        
+        guard let objectID = DBManager.shared.objectID(with: url) else { return }
+        guard let managedCar = DBManager.shared.context.registeredObject(for: objectID) as? ManagedCar else { return }
+        
+        managedCar.update(by: data.car)
+        
+        if let owner = managedCar.owner {
+            owner.update(by: data.owner)
+        }
+        
+        DBManager.shared.saveContext()
+    
+    }
+    
+    func insertObject(by data: Ownership) {
+        
+        let manufacturer = ManagedManufacturer(contex: DBManager.shared.context,
+                                               name: data.car.manufacturer.name,
+                                               ranking: Int16(data.car.manufacturer.ranking))
+        let car = ManagedCar(contex: DBManager.shared.context,
+                             model: data.car.model,
+                             manufacturer: manufacturer,
+                             mileage: Int32(data.car.mileage),
+                             owner: nil)
+        let _ = ManagedPerson(context: DBManager.shared.context,
+                                  name: data.owner.name,
+                                  birthdate: data.owner.birthdate,
+                                  cars: [car])
+        
+        DBManager.shared.saveContext()
+    }
+
 }
 
 extension OwnershipDataProvider: NSFetchedResultsControllerDelegate {
@@ -192,11 +240,10 @@ extension OwnershipDataProvider: NSFetchedResultsControllerDelegate {
         
         let managedCar = anObject as! ManagedCar
         var ownership: Ownership? = nil
-        if let managedPerson = managedCar.owner, let managedManufacturer = managedCar.manufacturer {
-            let car             = managedCar.makeCar()
-            let person          = managedPerson.makePerson()
-            let manufacturer    = managedManufacturer.makeManufacturer()
-            ownership = Ownership(person: person, car: car, manufacturer: manufacturer)
+
+        if let car = managedCar.makeCar(), let managedPerson = managedCar.owner {
+            let owner = managedPerson.makePerson()
+            ownership = Ownership(owner: owner, car: car)
         }
         
         let changeType: AEModelChangeType

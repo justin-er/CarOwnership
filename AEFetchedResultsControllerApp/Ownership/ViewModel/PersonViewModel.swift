@@ -26,4 +26,13 @@ struct PersonViewModel {
         
         return person
     }
+    
+    func update(person: inout Person) throws {
+        
+        guard let birthdate     = dateFormatter.date(from: self.birthdate) else {
+            throw ViewModelError.invalidDate
+        }
+        person.birthdate        = birthdate
+        person.name             = self.name
+    }
 }

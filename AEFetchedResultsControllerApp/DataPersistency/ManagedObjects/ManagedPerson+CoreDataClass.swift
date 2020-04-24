@@ -25,4 +25,15 @@ public class ManagedPerson: NSManagedObject {
         return Person(birthdate: self.birthdate!,
         name: self.name!)
     }
+    
+    func update(person: inout Person)  {
+        
+        person.birthdate        = self.birthdate!
+        person.name             = self.name!
+    }
+    
+    func update(by person: Person) {
+        self.birthdate  = person.birthdate
+        self.name       = person.name
+    }
 }

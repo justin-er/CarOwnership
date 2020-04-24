@@ -11,8 +11,7 @@ import UIKit
 class OwnershipTableViewController: UITableViewController {
 
     var presenter: OwnershipPresenterInterface?
-    
-    var completionHandler:((String) -> Int)?
+    var isVisible: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +19,16 @@ class OwnershipTableViewController: UITableViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         presenter?.relaodData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.isVisible = true
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.isVisible = false
     }
     // MARK: - Table view data source
 
@@ -41,7 +50,7 @@ class OwnershipTableViewController: UITableViewController {
         
         let ownership = presenter.object(at: indexPath)
         cell.car.text = ownership.car.model
-        cell.manufacturer.text = ownership.manufacturer.name
+        cell.manufacturer.text = ownership.car.manufacturer.name
         cell.mileage.text = "\(ownership.car.mileage)"
 
         return cell
@@ -61,7 +70,18 @@ class OwnershipTableViewController: UITableViewController {
         })
         
         let editAction = UIContextualAction(style: .normal, title: "Edit", handler: {[weak self] _, _, completion in
-    
+            guard let presenter = self?.presenter else {
+                completion(false)
+                return
+            }
+            
+            guard let objectUrl = presenter.objectUrl(at: indexPath).carUrl else {
+                completion(false)
+                return
+            }
+            
+            let editMileageViewController = EditMileageComposer.makeModule(carObjectID: objectUrl)
+            self?.show(editMileageViewController, sender: nil)
             completion(true)
         })
         
@@ -85,10 +105,13 @@ extension OwnershipTableViewController: OwnershipPresenterDelegate {
     }
     
     func presenterWillChangeContent(_ presenter: OwnershipPresenterInterface) {
+        guard isVisible else { return }
         tableView.beginUpdates()
     }
     
     func presenter(_ presenter: OwnershipPresenterInterface, didChange ownership: OwnershipViewModel?, at indexPath: IndexPath?, for type: AEModelChangeType, newIndexPath: IndexPath?) {
+        
+        guard isVisible else { return }
         
         switch type {
         case .delete:
@@ -104,6 +127,8 @@ extension OwnershipTableViewController: OwnershipPresenterDelegate {
     
     func presenterDidChangeSection(_ presenter: OwnershipPresenterInterface, at sectionIndex: Int, for type: AEModelChangeType) {
         
+        guard isVisible else { return }
+        
         switch type {
         case .update:
             tableView.reloadSections(IndexSet([sectionIndex]), with: .automatic)
@@ -117,6 +142,7 @@ extension OwnershipTableViewController: OwnershipPresenterDelegate {
     }
     
     func presenterDidChangeContent(_ presenter: OwnershipPresenterInterface) {
+        guard isVisible else { return }
         tableView.endUpdates()
     }
 }

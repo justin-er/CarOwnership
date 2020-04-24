@@ -83,6 +83,24 @@ class OwnershipPresenter : OwnershipPresenterInterface {
     func deleteObject(at indexPath: IndexPath) {
         dataProvider?.deleteObject(at: indexPath)
     }
+    
+    func deleteObject(with url: URL) {
+        dataProvider?.deleteObject(with: url)
+    }
+    
+    func updateObject(at indexPath: IndexPath, by data: OwnershipViewModel) {
+        dataProvider?.updateObject(at: indexPath, by: data.makeOwnership())
+    }
+    
+    func updateObject(with url: URL, by data: OwnershipViewModel) {
+        dataProvider?.updateObject(with: url, by: data.makeOwnership())
+    }
+    
+    func insertObject(by data: OwnershipViewModel) {
+        dataProvider?.insertObject(by: data.makeOwnership())
+    }
+    
+    
 }
 
 extension OwnershipPresenter: OwnershipDataProviderDelegate {

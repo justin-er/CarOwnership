@@ -11,4 +11,5 @@ import Foundation
 struct Car {
     var model: String
     var mileage: Int
+    var manufacturer: Manufacturer
 }

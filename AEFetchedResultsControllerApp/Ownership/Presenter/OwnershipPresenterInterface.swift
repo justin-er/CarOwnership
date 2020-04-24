@@ -24,4 +24,8 @@ protocol OwnershipPresenterInterface  {
     func relaodData()
     
     func deleteObject(at indexPath: IndexPath)
+    func deleteObject(with url: URL)
+    func updateObject(at indexPath: IndexPath, by data: OwnershipViewModel)
+    func updateObject(with url: URL, by data: OwnershipViewModel)
+    func insertObject(by data: OwnershipViewModel)
 }

@@ -11,12 +11,20 @@ import Foundation
 struct OwnershipViewModel {
     var person:         PersonViewModel
     var car:            CarViewModel
-    var manufacturer:   ManufacturerViewModel
 
     init(by ownerhsip: Ownership, dateFormat: String) {
-        self.person         = PersonViewModel(by: ownerhsip.person, dateFormat: dateFormat)
+        self.person         = PersonViewModel(by: ownerhsip.owner, dateFormat: dateFormat)
         self.car            = CarViewModel(by: ownerhsip.car)
-        self.manufacturer   = ManufacturerViewModel(by: ownerhsip.manufacturer)
+    }
+    
+    func makeOwnership() -> Ownership {
+        return Ownership(owner: self.person.makePerson(),
+                         car: self.car.makeCar())
+    }
+    
+    func update(ownership: inout Ownership) throws {
+        self.car.update(car: &ownership.car)
+        try self.person.update(person: &ownership.owner)
     }
 }
 

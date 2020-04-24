@@ -14,10 +14,6 @@ protocol OwnershipPresenterDelegate: class {
     
     func presenterDidFilterData(_ presenter: OwnershipPresenterInterface)
     
-//    func presenter(_ presenter: OwnershipPresenterInterface, didChangeModels changeEvent: AEModelEvent<OwnershipViewModel>)
-//    
-//    func presenter(_ presenter: OwnershipPresenterInterface, didChangeSections changeEvent: AESectionInfoEvent)
-    
     func presenterWillChangeContent(_ presenter: OwnershipPresenterInterface)
     
     func presenter(_ presenter: OwnershipPresenterInterface, didChange ownership: OwnershipViewModel?, at indexPath: IndexPath?, for type: AEModelChangeType, newIndexPath: IndexPath?)

@@ -75,14 +75,6 @@ class OwnershipPresenter : OwnershipPresenterInterface {
     func deleteObject(at indexPath: IndexPath) {
         dataProvider?.deleteObject(at: indexPath)
     }
-    
-    func addSomething() {
-        dataProvider?.addSomething()
-    }
-    
-    func saveSomething() {
-        dataProvider?.saveSomething()
-    }
 }
 
 extension OwnershipPresenter: OwnershipDataProviderDelegate {

@@ -7,33 +7,15 @@
 //
 
 import UIKit
-import CoreData
 
 class OwnershipTableViewController: UITableViewController {
 
     var presenter: OwnershipPresenterInterface?
     
-    var addButtonItem: UIBarButtonItem!
-    var saveButtonItem: UIBarButtonItem!
+    var completionHandler:((String) -> Int)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationItem.leftBarButtonItem = self.editButtonItem
-        
-        addButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addSomething))
-        self.navigationItem.rightBarButtonItem = self.addButtonItem
-        
-        saveButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveSomething))
-        self.navigationItem.rightBarButtonItems?.append(contentsOf: [saveButtonItem])
-    }
-    
-    @objc func addSomething() {
-        presenter?.addSomething()
-    }
-    
-    @objc func saveSomething() {
-        presenter?.saveSomething()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -69,11 +51,21 @@ class OwnershipTableViewController: UITableViewController {
         return presenter?.sectionName(at: section)
     }
 
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    //MARK: - Table View Delegate
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        guard editingStyle == .delete else { return }
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete", handler: {[weak self] _, _, completion in
+            self?.presenter?.deleteObject(at: indexPath)
+            completion(true)
+        })
         
-        presenter?.deleteObject(at: indexPath)
+        let editAction = UIContextualAction(style: .normal, title: "Edit", handler: {[weak self] _, _, completion in
+    
+            completion(true)
+        })
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -127,6 +119,4 @@ extension OwnershipTableViewController: OwnershipPresenterDelegate {
     func presenterDidChangeContent(_ presenter: OwnershipPresenterInterface) {
         tableView.endUpdates()
     }
-    
-    
 }

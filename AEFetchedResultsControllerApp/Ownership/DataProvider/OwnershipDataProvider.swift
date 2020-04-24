@@ -155,17 +155,6 @@ extension OwnershipDataProvider: OwnershipDataProviderInterface {
         }
     }
     
-    func addSomething() {
-        let firstCar = frc.object(at: IndexPath(row: 0, section: 0)) as ManagedCar
-        let owner = firstCar.owner!
-        let mercedes = ManagedManufacturer(contex: DBManager.shared.context, name: "Mercedes", ranking: 3)
-        let _ = ManagedCar(contex: DBManager.shared.context, model: "A 250", manufacturer: mercedes, mileage: 45, owner: owner)
-    }
-    
-    func saveSomething() {
-        DBManager.shared.saveContext()
-    }
-    
     func deleteObject(at indexPath: IndexPath) {
         
         let car = frc.object(at: indexPath)

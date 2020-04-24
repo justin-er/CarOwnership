@@ -23,6 +23,5 @@ protocol OwnershipDataProviderInterface: class  {
     func relaodData()
     
     func deleteObject(at indexPath: IndexPath)
-    func addSomething()
-    func saveSomething()
+
 }

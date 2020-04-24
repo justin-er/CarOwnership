@@ -14,10 +14,6 @@ protocol OwnershipDataProviderDelegate: class {
     
     func providerDidFilterData(_ provider: OwnershipDataProviderInterface)
     
-//    func provider(_ provider: OwnershipDataProviderInterface, didChangeModels changeEvent: AEModelEvent<Ownership>)
-//    
-//    func provider(_ provider: OwnershipDataProviderInterface, didChangeSections changeEvent: AESectionInfoEvent)
-    
     func providerWillChangeContent(_ provider: OwnershipDataProviderInterface)
     
     func provider(_ provider: OwnershipDataProviderInterface, didChange ownership: Ownership?, at indexPath: IndexPath?, for type: AEModelChangeType, newIndexPath: IndexPath?)

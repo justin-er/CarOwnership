@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		760B50D02452BC4C00C2187F /* OwnershipComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760B50CF2452BC4C00C2187F /* OwnershipComposer.swift */; };
+		760B50D42452BDED00C2187F /* OwnerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760B50D22452BDED00C2187F /* OwnerTableViewController.swift */; };
+		760B50D52452BDED00C2187F /* OwnerTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 760B50D32452BDED00C2187F /* OwnerTableViewController.xib */; };
 		763690CA244F1E06002A7041 /* OwnershipPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763690C9244F1E06002A7041 /* OwnershipPresenterInterface.swift */; };
 		763690CC244F1E1B002A7041 /* OwnershipPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763690CB244F1E1B002A7041 /* OwnershipPresenterDelegate.swift */; };
 		763690CE244F1F28002A7041 /* OwnershipViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763690CD244F1F28002A7041 /* OwnershipViewModel.swift */; };
@@ -15,8 +18,6 @@
 		763690D5244F1F85002A7041 /* ManufactrurerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763690D4244F1F85002A7041 /* ManufactrurerViewModel.swift */; };
 		764A123B24460E030066EDDB /* OwnershipDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764A123A24460E030066EDDB /* OwnershipDataProvider.swift */; };
 		764A123D244614A50066EDDB /* CarOwnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764A123C244614A50066EDDB /* CarOwnerCell.swift */; };
-		764D87112451809D00838446 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764D870F2451809D00838446 /* SecondViewController.swift */; };
-		764D87122451809D00838446 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 764D87102451809D00838446 /* SecondViewController.xib */; };
 		7683B9F62448213400B4B3F1 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7683B9F52448213400B4B3F1 /* Car.swift */; };
 		7683B9F8244821A800B4B3F1 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7683B9F7244821A800B4B3F1 /* Person.swift */; };
 		7683B9FA244821F500B4B3F1 /* Manufacturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7683B9F9244821F500B4B3F1 /* Manufacturer.swift */; };
@@ -42,6 +43,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		760B50CF2452BC4C00C2187F /* OwnershipComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipComposer.swift; sourceTree = "<group>"; };
+		760B50D22452BDED00C2187F /* OwnerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerTableViewController.swift; sourceTree = "<group>"; };
+		760B50D32452BDED00C2187F /* OwnerTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OwnerTableViewController.xib; sourceTree = "<group>"; };
 		763690C9244F1E06002A7041 /* OwnershipPresenterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipPresenterInterface.swift; sourceTree = "<group>"; };
 		763690CB244F1E1B002A7041 /* OwnershipPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipPresenterDelegate.swift; sourceTree = "<group>"; };
 		763690CD244F1F28002A7041 /* OwnershipViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipViewModel.swift; sourceTree = "<group>"; };
@@ -50,8 +54,6 @@
 		763690D4244F1F85002A7041 /* ManufactrurerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManufactrurerViewModel.swift; sourceTree = "<group>"; };
 		764A123A24460E030066EDDB /* OwnershipDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipDataProvider.swift; sourceTree = "<group>"; };
 		764A123C244614A50066EDDB /* CarOwnerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarOwnerCell.swift; sourceTree = "<group>"; };
-		764D870F2451809D00838446 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		764D87102451809D00838446 /* SecondViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
 		7683B9F52448213400B4B3F1 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		7683B9F7244821A800B4B3F1 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		7683B9F9244821F500B4B3F1 /* Manufacturer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manufacturer.swift; sourceTree = "<group>"; };
@@ -89,6 +91,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		760B50D12452BC5200C2187F /* Composer */ = {
+			isa = PBXGroup;
+			children = (
+				760B50CF2452BC4C00C2187F /* OwnershipComposer.swift */,
+			);
+			path = Composer;
+			sourceTree = "<group>";
+		};
 		763690CF244F1F5F002A7041 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,8 +146,6 @@
 			children = (
 				76F6D3E22445FC4B008026B5 /* Main.storyboard */,
 				76F6D3EA2445FC4F008026B5 /* LaunchScreen.storyboard */,
-				764D870F2451809D00838446 /* SecondViewController.swift */,
-				764D87102451809D00838446 /* SecondViewController.xib */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -163,6 +171,7 @@
 		76C1C7A1244F1AC9000056F0 /* Ownership */ = {
 			isa = PBXGroup;
 			children = (
+				760B50D12452BC5200C2187F /* Composer */,
 				76C1C7A2244F1ADC000056F0 /* View */,
 				76C1C7A3244F1AEB000056F0 /* Presenter */,
 				76B807D42448516A007D8D40 /* DataProvider */,
@@ -175,6 +184,8 @@
 			children = (
 				76F6D40624460379008026B5 /* OwnershipTableViewController.swift */,
 				764A123C244614A50066EDDB /* CarOwnerCell.swift */,
+				760B50D22452BDED00C2187F /* OwnerTableViewController.swift */,
+				760B50D32452BDED00C2187F /* OwnerTableViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -291,10 +302,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				764D87122451809D00838446 /* SecondViewController.xib in Resources */,
 				76F6D3EC2445FC4F008026B5 /* LaunchScreen.storyboard in Resources */,
 				76F6D3E92445FC4F008026B5 /* Assets.xcassets in Resources */,
 				76F6D3E42445FC4B008026B5 /* Main.storyboard in Resources */,
+				760B50D52452BDED00C2187F /* OwnerTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,7 +320,6 @@
 				7683B9F8244821A800B4B3F1 /* Person.swift in Sources */,
 				7683BA042448243D00B4B3F1 /* ManagedCar+CoreDataProperties.swift in Sources */,
 				7683BA052448243D00B4B3F1 /* ManagedManufacturer+CoreDataClass.swift in Sources */,
-				764D87112451809D00838446 /* SecondViewController.swift in Sources */,
 				76B807D624485191007D8D40 /* OwnershipDataProviderInterface.swift in Sources */,
 				763690D3244F1F76002A7041 /* PersonViewModel.swift in Sources */,
 				7683BA012448243D00B4B3F1 /* ManagedPerson+CoreDataClass.swift in Sources */,
@@ -330,7 +340,9 @@
 				76C1C7A5244F1B0C000056F0 /* OwnershipPresenter.swift in Sources */,
 				76925F32245077C200A593AC /* DBManager.swift in Sources */,
 				763690CC244F1E1B002A7041 /* OwnershipPresenterDelegate.swift in Sources */,
+				760B50D42452BDED00C2187F /* OwnerTableViewController.swift in Sources */,
 				76F6D3DF2445FC4B008026B5 /* SceneDelegate.swift in Sources */,
+				760B50D02452BC4C00C2187F /* OwnershipComposer.swift in Sources */,
 				763690D5244F1F85002A7041 /* ManufactrurerViewModel.swift in Sources */,
 				7683BA062448243D00B4B3F1 /* ManagedManufacturer+CoreDataProperties.swift in Sources */,
 			);

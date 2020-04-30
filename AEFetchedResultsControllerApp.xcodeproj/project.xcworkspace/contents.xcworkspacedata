@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:AEFetchedResultsControllerApp.xcodeproj">
+      location = "self:/Users/amirreza/Documents/Projects/Development Study/Core Data AEFetchedResultsController/AEFetchedResultsControllerApp/AEFetchedResultsControllerApp.xcodeproj">
    </FileRef>
 </Workspace>

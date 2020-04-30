@@ -10,15 +10,18 @@
 		760B50D02452BC4C00C2187F /* OwnershipComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760B50CF2452BC4C00C2187F /* OwnershipComposer.swift */; };
 		760B50DC2452C8D600C2187F /* EditMileage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 760B50DB2452C8D600C2187F /* EditMileage.storyboard */; };
 		760B50DE2452C92E00C2187F /* EditMileageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760B50DD2452C92E00C2187F /* EditMileageViewController.swift */; };
-		760B50E02452C97400C2187F /* EditMileagePresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760B50DF2452C97400C2187F /* EditMileagePresenterInterface.swift */; };
-		763690CA244F1E06002A7041 /* OwnershipPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763690C9244F1E06002A7041 /* OwnershipPresenterInterface.swift */; };
+		760B50E02452C97400C2187F /* EditMileageInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760B50DF2452C97400C2187F /* EditMileageInteractorInput.swift */; };
+		763690CA244F1E06002A7041 /* OwnershipPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763690C9244F1E06002A7041 /* OwnershipPresenterInput.swift */; };
 		763690CC244F1E1B002A7041 /* OwnershipPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763690CB244F1E1B002A7041 /* OwnershipPresenterDelegate.swift */; };
 		763690CE244F1F28002A7041 /* OwnershipViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763690CD244F1F28002A7041 /* OwnershipViewModel.swift */; };
 		763690D1244F1F6C002A7041 /* CarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763690D0244F1F6C002A7041 /* CarViewModel.swift */; };
 		763690D3244F1F76002A7041 /* PersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763690D2244F1F76002A7041 /* PersonViewModel.swift */; };
-		763690D5244F1F85002A7041 /* ManufactrurerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763690D4244F1F85002A7041 /* ManufactrurerViewModel.swift */; };
+		763690D5244F1F85002A7041 /* ManufacturerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763690D4244F1F85002A7041 /* ManufacturerViewModel.swift */; };
 		764A123B24460E030066EDDB /* OwnershipDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764A123A24460E030066EDDB /* OwnershipDataProvider.swift */; };
 		764A123D244614A50066EDDB /* CarOwnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764A123C244614A50066EDDB /* CarOwnerCell.swift */; };
+		767A428F245AC1590033F72A /* OwnershipInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767A428E245AC1590033F72A /* OwnershipInteractor.swift */; };
+		767A4292245AC1760033F72A /* OwnershipInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767A4291245AC1760033F72A /* OwnershipInteractorInput.swift */; };
+		767A4294245AC1910033F72A /* OwnershipInteractorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767A4293245AC1910033F72A /* OwnershipInteractorDelegate.swift */; };
 		7683B9F62448213400B4B3F1 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7683B9F52448213400B4B3F1 /* Car.swift */; };
 		7683B9F8244821A800B4B3F1 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7683B9F7244821A800B4B3F1 /* Person.swift */; };
 		7683B9FA244821F500B4B3F1 /* Manufacturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7683B9F9244821F500B4B3F1 /* Manufacturer.swift */; };
@@ -30,14 +33,18 @@
 		7683BA062448243D00B4B3F1 /* ManagedManufacturer+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7683BA002448243D00B4B3F1 /* ManagedManufacturer+CoreDataProperties.swift */; };
 		76925F32245077C200A593AC /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76925F31245077C100A593AC /* DBManager.swift */; };
 		769681B4244710BD00BC1477 /* AEModelChangeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769681AF244710BD00BC1477 /* AEModelChangeType.swift */; };
-		76B807D624485191007D8D40 /* OwnershipDataProviderInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B807D524485191007D8D40 /* OwnershipDataProviderInterface.swift */; };
+		76B807D624485191007D8D40 /* OwnershipDataProviderInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B807D524485191007D8D40 /* OwnershipDataProviderInput.swift */; };
 		76B807D8244851B2007D8D40 /* OwnershipDataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B807D7244851B2007D8D40 /* OwnershipDataProviderDelegate.swift */; };
 		76B807DE24486256007D8D40 /* Ownership.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B807DD24486256007D8D40 /* Ownership.swift */; };
 		76C1C7A5244F1B0C000056F0 /* OwnershipPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C1C7A4244F1B0C000056F0 /* OwnershipPresenter.swift */; };
+		76DCDFD8245B0D76005C22A1 /* EditMileagePresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DCDFD7245B0D76005C22A1 /* EditMileagePresenterInput.swift */; };
+		76DCDFDB245B0DFB005C22A1 /* EditMileagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DCDFDA245B0DFB005C22A1 /* EditMileagePresenter.swift */; };
+		76DCDFDD245B0E41005C22A1 /* EditMileagePresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DCDFDC245B0E41005C22A1 /* EditMileagePresenterDelegate.swift */; };
+		76DCDFDF245B123F005C22A1 /* EditMileageDataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DCDFDE245B123F005C22A1 /* EditMileageDataProviderDelegate.swift */; };
 		76EC1BF32452D6C900A8453C /* ViewModelError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EC1BF22452D6C900A8453C /* ViewModelError.swift */; };
 		76EC1BF52452DEED00A8453C /* EditMileageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EC1BF42452DEED00A8453C /* EditMileageComposer.swift */; };
-		76EC1BF72452E3BD00A8453C /* EditMileagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EC1BF62452E3BD00A8453C /* EditMileagePresenter.swift */; };
-		76EC1BF92452E3F100A8453C /* EditMileageDataProviderInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EC1BF82452E3F100A8453C /* EditMileageDataProviderInterface.swift */; };
+		76EC1BF72452E3BD00A8453C /* EditMileageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EC1BF62452E3BD00A8453C /* EditMileageInteractor.swift */; };
+		76EC1BF92452E3F100A8453C /* EditMileageDataProviderInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EC1BF82452E3F100A8453C /* EditMileageDataProviderInput.swift */; };
 		76EC1BFB2452E55700A8453C /* EditMileageDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EC1BFA2452E55700A8453C /* EditMileageDataProvider.swift */; };
 		76F6D3DD2445FC4B008026B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F6D3DC2445FC4B008026B5 /* AppDelegate.swift */; };
 		76F6D3DF2445FC4B008026B5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F6D3DE2445FC4B008026B5 /* SceneDelegate.swift */; };
@@ -52,15 +59,18 @@
 		760B50CF2452BC4C00C2187F /* OwnershipComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipComposer.swift; sourceTree = "<group>"; };
 		760B50DB2452C8D600C2187F /* EditMileage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditMileage.storyboard; sourceTree = "<group>"; };
 		760B50DD2452C92E00C2187F /* EditMileageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMileageViewController.swift; sourceTree = "<group>"; };
-		760B50DF2452C97400C2187F /* EditMileagePresenterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMileagePresenterInterface.swift; sourceTree = "<group>"; };
-		763690C9244F1E06002A7041 /* OwnershipPresenterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipPresenterInterface.swift; sourceTree = "<group>"; };
+		760B50DF2452C97400C2187F /* EditMileageInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMileageInteractorInput.swift; sourceTree = "<group>"; };
+		763690C9244F1E06002A7041 /* OwnershipPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipPresenterInput.swift; sourceTree = "<group>"; };
 		763690CB244F1E1B002A7041 /* OwnershipPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipPresenterDelegate.swift; sourceTree = "<group>"; };
 		763690CD244F1F28002A7041 /* OwnershipViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipViewModel.swift; sourceTree = "<group>"; };
 		763690D0244F1F6C002A7041 /* CarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarViewModel.swift; sourceTree = "<group>"; };
 		763690D2244F1F76002A7041 /* PersonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewModel.swift; sourceTree = "<group>"; };
-		763690D4244F1F85002A7041 /* ManufactrurerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManufactrurerViewModel.swift; sourceTree = "<group>"; };
+		763690D4244F1F85002A7041 /* ManufacturerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManufacturerViewModel.swift; sourceTree = "<group>"; };
 		764A123A24460E030066EDDB /* OwnershipDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipDataProvider.swift; sourceTree = "<group>"; };
 		764A123C244614A50066EDDB /* CarOwnerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarOwnerCell.swift; sourceTree = "<group>"; };
+		767A428E245AC1590033F72A /* OwnershipInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipInteractor.swift; sourceTree = "<group>"; };
+		767A4291245AC1760033F72A /* OwnershipInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipInteractorInput.swift; sourceTree = "<group>"; };
+		767A4293245AC1910033F72A /* OwnershipInteractorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipInteractorDelegate.swift; sourceTree = "<group>"; };
 		7683B9F52448213400B4B3F1 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		7683B9F7244821A800B4B3F1 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		7683B9F9244821F500B4B3F1 /* Manufacturer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manufacturer.swift; sourceTree = "<group>"; };
@@ -72,16 +82,20 @@
 		7683BA002448243D00B4B3F1 /* ManagedManufacturer+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ManagedManufacturer+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		76925F31245077C100A593AC /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		769681AF244710BD00BC1477 /* AEModelChangeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AEModelChangeType.swift; sourceTree = "<group>"; };
-		76B807D524485191007D8D40 /* OwnershipDataProviderInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipDataProviderInterface.swift; sourceTree = "<group>"; };
+		76B807D524485191007D8D40 /* OwnershipDataProviderInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipDataProviderInput.swift; sourceTree = "<group>"; };
 		76B807D7244851B2007D8D40 /* OwnershipDataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipDataProviderDelegate.swift; sourceTree = "<group>"; };
 		76B807DD24486256007D8D40 /* Ownership.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ownership.swift; sourceTree = "<group>"; };
 		76C1C7A4244F1B0C000056F0 /* OwnershipPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipPresenter.swift; sourceTree = "<group>"; };
+		76DCDFD7245B0D76005C22A1 /* EditMileagePresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMileagePresenterInput.swift; sourceTree = "<group>"; };
+		76DCDFDA245B0DFB005C22A1 /* EditMileagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMileagePresenter.swift; sourceTree = "<group>"; };
+		76DCDFDC245B0E41005C22A1 /* EditMileagePresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMileagePresenterDelegate.swift; sourceTree = "<group>"; };
+		76DCDFDE245B123F005C22A1 /* EditMileageDataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMileageDataProviderDelegate.swift; sourceTree = "<group>"; };
 		76EC1BF22452D6C900A8453C /* ViewModelError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelError.swift; sourceTree = "<group>"; };
 		76EC1BF42452DEED00A8453C /* EditMileageComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMileageComposer.swift; sourceTree = "<group>"; };
-		76EC1BF62452E3BD00A8453C /* EditMileagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMileagePresenter.swift; sourceTree = "<group>"; };
-		76EC1BF82452E3F100A8453C /* EditMileageDataProviderInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMileageDataProviderInterface.swift; sourceTree = "<group>"; };
+		76EC1BF62452E3BD00A8453C /* EditMileageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMileageInteractor.swift; sourceTree = "<group>"; };
+		76EC1BF82452E3F100A8453C /* EditMileageDataProviderInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMileageDataProviderInput.swift; sourceTree = "<group>"; };
 		76EC1BFA2452E55700A8453C /* EditMileageDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMileageDataProvider.swift; sourceTree = "<group>"; };
-		76F6D3D92445FC4B008026B5 /* AEFetchedResultsControllerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AEFetchedResultsControllerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		76F6D3D92445FC4B008026B5 /* CarOwnership.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarOwnership.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76F6D3DC2445FC4B008026B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76F6D3DE2445FC4B008026B5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		76F6D3E32445FC4B008026B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Ownership.storyboard; sourceTree = "<group>"; };
@@ -116,7 +130,8 @@
 			children = (
 				760B50D72452C89B00C2187F /* Composer */,
 				760B50DA2452C8AE00C2187F /* View */,
-				760B50D92452C8A900C2187F /* Presenter */,
+				760B50D92452C8A900C2187F /* Interactor */,
+				76DCDFD9245B0D7A005C22A1 /* EditMileagePresenter */,
 				760B50D82452C8A100C2187F /* DataProvider */,
 			);
 			path = EditMileage;
@@ -133,19 +148,20 @@
 		760B50D82452C8A100C2187F /* DataProvider */ = {
 			isa = PBXGroup;
 			children = (
-				76EC1BF82452E3F100A8453C /* EditMileageDataProviderInterface.swift */,
+				76EC1BF82452E3F100A8453C /* EditMileageDataProviderInput.swift */,
 				76EC1BFA2452E55700A8453C /* EditMileageDataProvider.swift */,
+				76DCDFDE245B123F005C22A1 /* EditMileageDataProviderDelegate.swift */,
 			);
 			path = DataProvider;
 			sourceTree = "<group>";
 		};
-		760B50D92452C8A900C2187F /* Presenter */ = {
+		760B50D92452C8A900C2187F /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				760B50DF2452C97400C2187F /* EditMileagePresenterInterface.swift */,
-				76EC1BF62452E3BD00A8453C /* EditMileagePresenter.swift */,
+				760B50DF2452C97400C2187F /* EditMileageInteractorInput.swift */,
+				76EC1BF62452E3BD00A8453C /* EditMileageInteractor.swift */,
 			);
-			path = Presenter;
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		760B50DA2452C8AE00C2187F /* View */ = {
@@ -157,16 +173,23 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		763690CF244F1F5F002A7041 /* ViewModels */ = {
+		763690CF244F1F5F002A7041 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				76EC1BFF24535DC400A8453C /* Support */,
-				763690D0244F1F6C002A7041 /* CarViewModel.swift */,
-				763690D2244F1F76002A7041 /* PersonViewModel.swift */,
-				763690D4244F1F85002A7041 /* ManufactrurerViewModel.swift */,
-				763690CD244F1F28002A7041 /* OwnershipViewModel.swift */,
+				76DCDFE0245B18BB005C22A1 /* ViewModels */,
 			);
-			path = ViewModels;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		767A4290245AC15C0033F72A /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				767A4291245AC1760033F72A /* OwnershipInteractorInput.swift */,
+				767A428E245AC1590033F72A /* OwnershipInteractor.swift */,
+				767A4293245AC1910033F72A /* OwnershipInteractorDelegate.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		7683B9F42448212000B4B3F1 /* Entities */ = {
@@ -183,6 +206,7 @@
 		76925F30245076DE00A593AC /* AppSupport */ = {
 			isa = PBXGroup;
 			children = (
+				76F6D3ED2445FC4F008026B5 /* Info.plist */,
 				76F6D3DC2445FC4B008026B5 /* AppDelegate.swift */,
 				76F6D3DE2445FC4B008026B5 /* SceneDelegate.swift */,
 				76F6D3EA2445FC4F008026B5 /* LaunchScreen.storyboard */,
@@ -191,20 +215,19 @@
 			path = AppSupport;
 			sourceTree = "<group>";
 		};
-		76925F33245077DB00A593AC /* DataPersistency */ = {
+		76925F33245077DB00A593AC /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				76925F31245077C100A593AC /* DBManager.swift */,
-				76F6D3E52445FC4B008026B5 /* DBDataModel.xcdatamodeld */,
+				76DCDFD6245AFAB4005C22A1 /* DBManager */,
 				76F6D3FB244602F0008026B5 /* ManagedObjects */,
 			);
-			path = DataPersistency;
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		76B807D42448516A007D8D40 /* DataProvider */ = {
 			isa = PBXGroup;
 			children = (
-				76B807D524485191007D8D40 /* OwnershipDataProviderInterface.swift */,
+				76B807D524485191007D8D40 /* OwnershipDataProviderInput.swift */,
 				764A123A24460E030066EDDB /* OwnershipDataProvider.swift */,
 				76B807D7244851B2007D8D40 /* OwnershipDataProviderDelegate.swift */,
 			);
@@ -216,6 +239,7 @@
 			children = (
 				760B50D12452BC5200C2187F /* Composer */,
 				76C1C7A2244F1ADC000056F0 /* View */,
+				767A4290245AC15C0033F72A /* Interactor */,
 				76C1C7A3244F1AEB000056F0 /* Presenter */,
 				76B807D42448516A007D8D40 /* DataProvider */,
 			);
@@ -235,11 +259,41 @@
 		76C1C7A3244F1AEB000056F0 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				763690C9244F1E06002A7041 /* OwnershipPresenterInterface.swift */,
+				763690C9244F1E06002A7041 /* OwnershipPresenterInput.swift */,
 				76C1C7A4244F1B0C000056F0 /* OwnershipPresenter.swift */,
 				763690CB244F1E1B002A7041 /* OwnershipPresenterDelegate.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		76DCDFD6245AFAB4005C22A1 /* DBManager */ = {
+			isa = PBXGroup;
+			children = (
+				76925F31245077C100A593AC /* DBManager.swift */,
+				76F6D3E52445FC4B008026B5 /* DBDataModel.xcdatamodeld */,
+			);
+			path = DBManager;
+			sourceTree = "<group>";
+		};
+		76DCDFD9245B0D7A005C22A1 /* EditMileagePresenter */ = {
+			isa = PBXGroup;
+			children = (
+				76DCDFD7245B0D76005C22A1 /* EditMileagePresenterInput.swift */,
+				76DCDFDA245B0DFB005C22A1 /* EditMileagePresenter.swift */,
+				76DCDFDC245B0E41005C22A1 /* EditMileagePresenterDelegate.swift */,
+			);
+			path = EditMileagePresenter;
+			sourceTree = "<group>";
+		};
+		76DCDFE0245B18BB005C22A1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				763690D0244F1F6C002A7041 /* CarViewModel.swift */,
+				763690D2244F1F76002A7041 /* PersonViewModel.swift */,
+				763690D4244F1F85002A7041 /* ManufacturerViewModel.swift */,
+				763690CD244F1F28002A7041 /* OwnershipViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		76EC1BFC24530E1A00A8453C /* Extensions */ = {
@@ -269,7 +323,7 @@
 		76F6D3DA2445FC4B008026B5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				76F6D3D92445FC4B008026B5 /* AEFetchedResultsControllerApp.app */,
+				76F6D3D92445FC4B008026B5 /* CarOwnership.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -277,13 +331,12 @@
 		76F6D3DB2445FC4B008026B5 /* AEFetchedResultsControllerApp */ = {
 			isa = PBXGroup;
 			children = (
-				76F6D3ED2445FC4F008026B5 /* Info.plist */,
 				76925F30245076DE00A593AC /* AppSupport */,
 				7683B9F42448212000B4B3F1 /* Entities */,
-				763690CF244F1F5F002A7041 /* ViewModels */,
+				763690CF244F1F5F002A7041 /* Models */,
 				76C1C7A1244F1AC9000056F0 /* Ownership */,
 				760B50D62452C88C00C2187F /* EditMileage */,
-				76925F33245077DB00A593AC /* DataPersistency */,
+				76925F33245077DB00A593AC /* Managers */,
 				76EC1BFC24530E1A00A8453C /* Extensions */,
 			);
 			path = AEFetchedResultsControllerApp;
@@ -319,7 +372,7 @@
 			);
 			name = AEFetchedResultsControllerApp;
 			productName = AEFetchedResultsControllerApp;
-			productReference = 76F6D3D92445FC4B008026B5 /* AEFetchedResultsControllerApp.app */;
+			productReference = 76F6D3D92445FC4B008026B5 /* CarOwnership.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -374,29 +427,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76DCDFDD245B0E41005C22A1 /* EditMileagePresenterDelegate.swift in Sources */,
 				7683BA032448243D00B4B3F1 /* ManagedCar+CoreDataClass.swift in Sources */,
 				7683B9F8244821A800B4B3F1 /* Person.swift in Sources */,
 				7683BA042448243D00B4B3F1 /* ManagedCar+CoreDataProperties.swift in Sources */,
 				7683BA052448243D00B4B3F1 /* ManagedManufacturer+CoreDataClass.swift in Sources */,
-				76EC1BF72452E3BD00A8453C /* EditMileagePresenter.swift in Sources */,
-				76B807D624485191007D8D40 /* OwnershipDataProviderInterface.swift in Sources */,
+				76EC1BF72452E3BD00A8453C /* EditMileageInteractor.swift in Sources */,
+				76DCDFD8245B0D76005C22A1 /* EditMileagePresenterInput.swift in Sources */,
+				76B807D624485191007D8D40 /* OwnershipDataProviderInput.swift in Sources */,
+				767A4294245AC1910033F72A /* OwnershipInteractorDelegate.swift in Sources */,
 				763690D3244F1F76002A7041 /* PersonViewModel.swift in Sources */,
 				7683BA012448243D00B4B3F1 /* ManagedPerson+CoreDataClass.swift in Sources */,
 				760B50DE2452C92E00C2187F /* EditMileageViewController.swift in Sources */,
 				76B807DE24486256007D8D40 /* Ownership.swift in Sources */,
-				760B50E02452C97400C2187F /* EditMileagePresenterInterface.swift in Sources */,
+				760B50E02452C97400C2187F /* EditMileageInteractorInput.swift in Sources */,
 				76F6D3DD2445FC4B008026B5 /* AppDelegate.swift in Sources */,
 				763690CE244F1F28002A7041 /* OwnershipViewModel.swift in Sources */,
+				76DCDFDB245B0DFB005C22A1 /* EditMileagePresenter.swift in Sources */,
 				76F6D3E72445FC4B008026B5 /* DBDataModel.xcdatamodeld in Sources */,
 				76F6D40724460379008026B5 /* OwnershipTableViewController.swift in Sources */,
 				764A123B24460E030066EDDB /* OwnershipDataProvider.swift in Sources */,
 				764A123D244614A50066EDDB /* CarOwnerCell.swift in Sources */,
 				7683B9FA244821F500B4B3F1 /* Manufacturer.swift in Sources */,
-				763690CA244F1E06002A7041 /* OwnershipPresenterInterface.swift in Sources */,
-				76EC1BF92452E3F100A8453C /* EditMileageDataProviderInterface.swift in Sources */,
+				763690CA244F1E06002A7041 /* OwnershipPresenterInput.swift in Sources */,
+				76EC1BF92452E3F100A8453C /* EditMileageDataProviderInput.swift in Sources */,
 				763690D1244F1F6C002A7041 /* CarViewModel.swift in Sources */,
+				767A428F245AC1590033F72A /* OwnershipInteractor.swift in Sources */,
 				7683B9F62448213400B4B3F1 /* Car.swift in Sources */,
 				7683BA022448243D00B4B3F1 /* ManagedPerson+CoreDataProperties.swift in Sources */,
+				767A4292245AC1760033F72A /* OwnershipInteractorInput.swift in Sources */,
 				76B807D8244851B2007D8D40 /* OwnershipDataProviderDelegate.swift in Sources */,
 				76EC1BF52452DEED00A8453C /* EditMileageComposer.swift in Sources */,
 				769681B4244710BD00BC1477 /* AEModelChangeType.swift in Sources */,
@@ -406,8 +465,9 @@
 				763690CC244F1E1B002A7041 /* OwnershipPresenterDelegate.swift in Sources */,
 				76F6D3DF2445FC4B008026B5 /* SceneDelegate.swift in Sources */,
 				760B50D02452BC4C00C2187F /* OwnershipComposer.swift in Sources */,
-				763690D5244F1F85002A7041 /* ManufactrurerViewModel.swift in Sources */,
+				763690D5244F1F85002A7041 /* ManufacturerViewModel.swift in Sources */,
 				7683BA062448243D00B4B3F1 /* ManagedManufacturer+CoreDataProperties.swift in Sources */,
+				76DCDFDF245B123F005C22A1 /* EditMileageDataProviderDelegate.swift in Sources */,
 				76EC1BF32452D6C900A8453C /* ViewModelError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -554,13 +614,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S7T2CRG623;
-				INFOPLIST_FILE = AEFetchedResultsControllerApp/Info.plist;
+				INFOPLIST_FILE = AEFetchedResultsControllerApp/AppSupport/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.amirrezaeghtedari.AEFetchedResultsControllerApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.amirrezaeghtedari.CarOwnership;
+				PRODUCT_NAME = CarOwnership;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -572,13 +632,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S7T2CRG623;
-				INFOPLIST_FILE = AEFetchedResultsControllerApp/Info.plist;
+				INFOPLIST_FILE = AEFetchedResultsControllerApp/AppSupport/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.amirrezaeghtedari.AEFetchedResultsControllerApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.amirrezaeghtedari.CarOwnership;
+				PRODUCT_NAME = CarOwnership;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

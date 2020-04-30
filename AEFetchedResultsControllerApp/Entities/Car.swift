@@ -9,6 +9,9 @@
 import Foundation
 
 struct Car {
+	
+	var modelID: String?
+	
     var model: String
     var mileage: Int
     var manufacturer: Manufacturer

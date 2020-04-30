@@ -9,6 +9,9 @@
 import Foundation
 
 struct Person {
-    public var birthdate: Date
-    public var name: String
+	
+	var modelID: String?
+	
+    var birthdate: Date
+    var name: String
 }

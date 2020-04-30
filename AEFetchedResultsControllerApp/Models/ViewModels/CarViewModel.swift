@@ -9,6 +9,9 @@
 import Foundation
 
 struct CarViewModel {
+	
+	var modelID: 	String?
+	
     var model:      String
     var mileage:    Int
     var manufacturer: ManufacturerViewModel
@@ -28,6 +31,7 @@ struct CarViewModel {
     }
     
     func update(car: inout Car) {
+		car.modelID 	= self.modelID
         car.mileage     = self.mileage
         car.model       = self.model
         self.manufacturer.update(manufacturer: &car.manufacturer)

@@ -92,7 +92,7 @@ class OwnershipDataProvider: NSObject {
     
 }
 
-extension OwnershipDataProvider: OwnershipDataProviderInterface {
+extension OwnershipDataProvider: OwnershipDataProviderInput {
     
     var objects: [Ownership]? {
         guard let objects = frc.fetchedObjects else {
@@ -139,9 +139,8 @@ extension OwnershipDataProvider: OwnershipDataProviderInterface {
         return ownership
     }
     
-    func objectUrl(at indexPath: IndexPath) -> (ownerUrl: URL?, carUrl: URL?, manufacturerUrl: URL?) {
-        
-        let managedCar = frc.object(at: indexPath)
+	func objectModelId(at indexPath: IndexPath) -> (ownerModelId: String?, carModelId: String?, manufacturerModelId: String?) {
+		let managedCar = frc.object(at: indexPath)
         let carUrl                      = managedCar.objectID.uriRepresentation()
         var ownerUrl: URL?              = nil
         var manufacturerUrl: URL?       = nil
@@ -154,9 +153,8 @@ extension OwnershipDataProvider: OwnershipDataProviderInterface {
             manufacturerUrl = managedManufacturere.objectID.uriRepresentation()
         }
         
-        return (ownerUrl, carUrl, manufacturerUrl)
-        
-    }
+		return (ownerUrl?.absoluteString, carUrl.absoluteString, manufacturerUrl?.absoluteString)
+	}
     
     func relaodData() {
         do {
@@ -172,42 +170,27 @@ extension OwnershipDataProvider: OwnershipDataProviderInterface {
         }
     }
     
-    func deleteObject(at indexPath: IndexPath) {
-        
-        let car = frc.object(at: indexPath)
-        DBManager.shared.context.delete(car)
-        DBManager.shared.saveContext()
-    }
-    
-    func deleteObject(with url: URL) {
-        
+    func deleteObject(object: Ownership) {
+		guard let modelID = object.car.modelID else { return }
+		guard let url = URL(string: modelID) else { return }
         guard let objectID = DBManager.shared.objectID(with: url) else { return }
         guard let object = DBManager.shared.context.registeredObject(for: objectID) else { return }
         
         DBManager.shared.context.delete(object)
         DBManager.shared.saveContext()
     }
+	
+	func deleteObject(at indexPath: IndexPath) {
+		let object = frc.object(at: indexPath)
+		DBManager.shared.context.delete(object)
+        DBManager.shared.saveContext()
+	}
     
     func updateObject(at indexPath: IndexPath, by data: Ownership) {
         
         let object = frc.object(at: indexPath)
         DBManager.shared.context.delete(object)
         DBManager.shared.saveContext()
-    }
-    
-    func updateObject(with url: URL, by data: Ownership) {
-        
-        guard let objectID = DBManager.shared.objectID(with: url) else { return }
-        guard let managedCar = DBManager.shared.context.registeredObject(for: objectID) as? ManagedCar else { return }
-        
-        managedCar.update(by: data.car)
-        
-        if let owner = managedCar.owner {
-            owner.update(by: data.owner)
-        }
-        
-        DBManager.shared.saveContext()
-    
     }
     
     func insertObject(by data: Ownership) {

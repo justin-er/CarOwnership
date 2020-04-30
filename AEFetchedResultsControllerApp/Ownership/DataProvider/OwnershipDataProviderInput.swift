@@ -8,11 +8,11 @@
 
 import Foundation
 
-protocol OwnershipDataProviderInterface: class  {
+protocol OwnershipDataProviderInput: class  {
     
     var objects: [Ownership]? { get }
     func object(at indexPath: IndexPath) -> Ownership
-    func objectUrl(at indexPath: IndexPath) -> (ownerUrl: URL?, carUrl: URL?, manufacturerUrl: URL?)
+    func objectModelId(at indexPath: IndexPath) -> (ownerModelId: String?, carModelId: String?, manufacturerModelId: String?)
     
     var sectionIndexTitles: [String] { get }
     var numberOfSections: Int? { get }
@@ -23,10 +23,9 @@ protocol OwnershipDataProviderInterface: class  {
     
     func relaodData()
     
-    func deleteObject(at indexPath: IndexPath)
-    func deleteObject(with url: URL)
+	func deleteObject(object: Ownership)
+	func deleteObject(at indexPath: IndexPath)
     func updateObject(at indexPath: IndexPath, by data: Ownership)
-    func updateObject(with url: URL, by data: Ownership)
     func insertObject(by data: Ownership)
 
 }

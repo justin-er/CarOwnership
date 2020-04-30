@@ -46,4 +46,12 @@ class DBManager {
     func objectID(with url: URL) -> NSManagedObjectID? {
         return persistentContainer.persistentStoreCoordinator.managedObjectID(forURIRepresentation: url)
     }
+	
+	func objectID(with urlString: String) -> NSManagedObjectID? {
+		guard let url = URL(string: urlString) else {
+			return nil
+		}
+		
+		return persistentContainer.persistentStoreCoordinator.managedObjectID(forURIRepresentation: url)
+	}
 }

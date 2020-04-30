@@ -16,13 +16,15 @@ class OwnershipComposer {
         let storyboard = UIStoryboard(name: "Ownership", bundle: nil)
         let ownershipViewController = storyboard.instantiateViewController(identifier: "OwnershipTableViewController") as! OwnershipTableViewController
         
-        let ownershipPreseneter         = OwnershipPresenter()
-        let ownershipDataProvider       = OwnershipDataProvider()
+		let interactor		= OwnershipInteractor()
+        let presenter       = OwnershipPresenter()
+        let dataProvider    = OwnershipDataProvider()
         
-        ownershipViewController.presenter   = ownershipPreseneter as OwnershipPresenterInterface
-        ownershipPreseneter.delegate        = ownershipViewController as OwnershipPresenterDelegate
-        ownershipPreseneter.dataProvider    = ownershipDataProvider as OwnershipDataProviderInterface
-        ownershipDataProvider.delegate      = ownershipPreseneter
+        ownershipViewController.interactor	= interactor as OwnershipInteractorInput
+		interactor.presenter 		= presenter as OwnershipPresenterInput
+		interactor.dataProvider		= dataProvider as OwnershipDataProviderInput
+		dataProvider.delegate 		= interactor as OwnershipDataProviderDelegate
+        presenter.delegate        	= ownershipViewController as OwnershipPresenterDelegate
         
         return ownershipViewController
     }

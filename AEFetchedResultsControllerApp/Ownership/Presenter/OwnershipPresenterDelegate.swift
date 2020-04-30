@@ -10,15 +10,15 @@ import Foundation
 
 protocol OwnershipPresenterDelegate: class {
     
-    func presenterDidReloadData(_ presenter: OwnershipPresenterInterface)
+    func presenterDidReloadData(_ presenter: OwnershipPresenterInput)
     
-    func presenterDidFilterData(_ presenter: OwnershipPresenterInterface)
+    func presenterDidFilterData(_ presenter: OwnershipPresenterInput)
     
-    func presenterWillChangeContent(_ presenter: OwnershipPresenterInterface)
+    func presenterWillChangeContent(_ presenter: OwnershipPresenterInput)
     
-    func presenter(_ presenter: OwnershipPresenterInterface, didChange ownership: OwnershipViewModel?, at indexPath: IndexPath?, for type: AEModelChangeType, newIndexPath: IndexPath?)
+    func presenter(_ presenter: OwnershipPresenterInput, didChange ownership: OwnershipViewModel?, at indexPath: IndexPath?, for type: AEModelChangeType, newIndexPath: IndexPath?)
     
-    func presenterDidChangeSection(_ presenter: OwnershipPresenterInterface, at sectionIndex: Int, for type: AEModelChangeType)
+    func presenterDidChangeSection(_ presenter: OwnershipPresenterInput, at sectionIndex: Int, for type: AEModelChangeType)
     
-    func presenterDidChangeContent(_ presenter: OwnershipPresenterInterface)
+    func presenterDidChangeContent(_ presenter: OwnershipPresenterInput)
 }

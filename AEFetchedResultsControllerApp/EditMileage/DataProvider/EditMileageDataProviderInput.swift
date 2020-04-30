@@ -8,8 +8,8 @@
 
 import Foundation
 
-protocol EditMileageDataProviderInterface {
+protocol EditMileageDataProviderInput {
     
-    func object(by url: URL) -> Car?
-    func updateObject(with url: URL, by car: Car)
+	func getCar(by modelID: String) -> Car?
+    func updateObject(with modelID: String, by car: Car)
 }

@@ -8,9 +8,9 @@
 
 import Foundation
 
-class OwnershipPresenter : OwnershipPresenterInterface {
+class OwnershipPresenter : OwnershipPresenterInput {
     
-    var dataProvider: OwnershipDataProviderInterface?
+    private weak var dataProvider: OwnershipDataProviderInput?
     weak var delegate: OwnershipPresenterDelegate?
     
     let birthdateFormat = "dd LL yyyy"
@@ -35,12 +35,13 @@ class OwnershipPresenter : OwnershipPresenterInterface {
         return OwnershipViewModel(by: ownership, dateFormat: birthdateFormat)
     }
     
-    func objectUrl(at indexPath: IndexPath) -> (ownerUrl: URL?, carUrl: URL?, manufacturerUrl: URL?) {
+    func objectModelId(at indexPath: IndexPath) -> (ownerModelId: String?, carModelId: String?, manufacturerModelId: String?) {
         guard let dataProvider = self.dataProvider else {
             return (nil, nil, nil)
         }
         
-        return dataProvider.objectUrl(at: indexPath)
+        return dataProvider.objectModelId(at: indexPath)
+		
     }
     
     var sctionIndexTitles: [String] {
@@ -75,50 +76,25 @@ class OwnershipPresenter : OwnershipPresenterInterface {
     func sectionName(at index: Int) -> String? {
         return dataProvider?.sectionName(at: index)
     }
-    
-    func relaodData() {
-        dataProvider?.relaodData()
-    }
-    
-    func deleteObject(at indexPath: IndexPath) {
-        dataProvider?.deleteObject(at: indexPath)
-    }
-    
-    func deleteObject(with url: URL) {
-        dataProvider?.deleteObject(with: url)
-    }
-    
-    func updateObject(at indexPath: IndexPath, by data: OwnershipViewModel) {
-        dataProvider?.updateObject(at: indexPath, by: data.makeOwnership())
-    }
-    
-    func updateObject(with url: URL, by data: OwnershipViewModel) {
-        dataProvider?.updateObject(with: url, by: data.makeOwnership())
-    }
-    
-    func insertObject(by data: OwnershipViewModel) {
-        dataProvider?.insertObject(by: data.makeOwnership())
-    }
-    
-    
-}
-
-extension OwnershipPresenter: OwnershipDataProviderDelegate {
-    
-    func providerDidReloadData(_ provider: OwnershipDataProviderInterface) {
+	
+	func providerDidReloadData(_ provider: OwnershipDataProviderInput) {
+		self.dataProvider = provider
         delegate?.presenterDidReloadData(self)
     }
     
-    func providerDidFilterData(_ provider: OwnershipDataProviderInterface) {
-        delegate?.presenterDidFilterData(self)
+    func providerDidFilterData(_ provider: OwnershipDataProviderInput) {
+        self.dataProvider = provider
+		delegate?.presenterDidFilterData(self)
     }
     
-    func providerWillChangeContent(_ provider: OwnershipDataProviderInterface) {
-        delegate?.presenterWillChangeContent(self)
+    func providerWillChangeContent(_ provider: OwnershipDataProviderInput) {
+        self.dataProvider = provider
+		delegate?.presenterWillChangeContent(self)
     }
     
-    func provider(_ provider: OwnershipDataProviderInterface, didChange ownership: Ownership?, at indexPath: IndexPath?, for type: AEModelChangeType, newIndexPath: IndexPath?) {
+    func provider(_ provider: OwnershipDataProviderInput, didChange ownership: Ownership?, at indexPath: IndexPath?, for type: AEModelChangeType, newIndexPath: IndexPath?) {
         
+		self.dataProvider = provider
         var ownershipViewModel: OwnershipViewModel? = nil
         if let ownership = ownership {
             ownershipViewModel = OwnershipViewModel(by: ownership, dateFormat: birthdateFormat)
@@ -127,12 +103,14 @@ extension OwnershipPresenter: OwnershipDataProviderDelegate {
         delegate?.presenter(self, didChange: ownershipViewModel, at: indexPath, for: type, newIndexPath: newIndexPath)
     }
     
-    func providerDidChangeSection(_ provider: OwnershipDataProviderInterface, at sectionIndex: Int, for type: AEModelChangeType) {
-        
+    func providerDidChangeSection(_ provider: OwnershipDataProviderInput, at sectionIndex: Int, for type: AEModelChangeType) {
+        self.dataProvider = provider
         delegate?.presenterDidChangeSection(self, at: sectionIndex, for: type)
     }
     
-    func providerDidChangeContent(_ provider: OwnershipDataProviderInterface) {
-        delegate?.presenterDidChangeContent(self)
+    func providerDidChangeContent(_ provider: OwnershipDataProviderInput) {
+        self.dataProvider = provider
+		delegate?.presenterDidChangeContent(self)
     }
 }
+

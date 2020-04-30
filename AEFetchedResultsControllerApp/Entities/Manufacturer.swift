@@ -9,6 +9,9 @@
 import Foundation
 
 struct Manufacturer {
+	
+	var modelID: String?
+	
     var name: String
     var ranking: Int
 }

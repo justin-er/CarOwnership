@@ -9,6 +9,9 @@
 import Foundation
 
 struct ManufacturerViewModel {
+	
+	var modelID: 	String?
+	
     var name:       String
     var ranking:    Int
 
@@ -18,11 +21,13 @@ struct ManufacturerViewModel {
     }
     
     func makeManufacturer() -> Manufacturer {
-        return Manufacturer(name: self.name,
-                                        ranking: self.ranking)
+		return Manufacturer(modelID: self.modelID,
+							name: self.name,
+							ranking: self.ranking)
     }
     
     func update(manufacturer: inout Manufacturer) {
+		manufacturer.modelID 	= self.modelID
         manufacturer.name       = self.name
         manufacturer.ranking    = self.ranking
     }

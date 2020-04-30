@@ -9,6 +9,9 @@
 import Foundation
 
 struct PersonViewModel {
+	
+	var modelID: 	String?
+	
     var birthdate:  String
     var name:       String
     
@@ -22,13 +25,16 @@ struct PersonViewModel {
     
     func makePerson() -> Person {
         let birthdate = dateFormatter.date(from: self.birthdate)
-        let person = Person(birthdate: birthdate!, name: self.name)
+		let person = Person(modelID: self.modelID,
+							birthdate: birthdate!,
+							name: self.name)
         
         return person
     }
     
     func update(person: inout Person) throws {
         
+		person.modelID 			= self.modelID
         guard let birthdate     = dateFormatter.date(from: self.birthdate) else {
             throw ViewModelError.invalidDate
         }

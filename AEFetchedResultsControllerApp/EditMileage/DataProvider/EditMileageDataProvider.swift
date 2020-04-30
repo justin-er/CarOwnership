@@ -9,21 +9,23 @@
 import Foundation
 import CoreData
 
-class EditMileageDataProvider: EditMileageDataProviderInterface {
-    
-    func object(by url: URL) -> Car? {
-        
-        guard let objectID = DBManager.shared.objectID(with: url) else {
+class EditMileageDataProvider: EditMileageDataProviderInput {
+	
+	weak var delegate: EditMileageDataProviderDelegate?
+	
+	func getCar(by modelID: String) -> Car? {
+		
+		guard let objectID = DBManager.shared.objectID(with: modelID) else {
             return nil
         }
         
         let managedCar = DBManager.shared.context.registeredObject(for: objectID) as? ManagedCar
-        return managedCar?.makeCar()
-    }
+		return managedCar?.makeCar()
+	}
     
-    func updateObject(with url: URL, by car: Car) {
-        
-        guard let objectID = DBManager.shared.objectID(with: url) else {
+    func updateObject(with modelID: String, by car: Car) {
+		
+        guard let objectID = DBManager.shared.objectID(with: modelID) else {
             return
         }
         

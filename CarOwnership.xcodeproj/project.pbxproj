@@ -19,6 +19,7 @@
 		763690D5244F1F85002A7041 /* ManufacturerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763690D4244F1F85002A7041 /* ManufacturerViewModel.swift */; };
 		764A123B24460E030066EDDB /* OwnershipDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764A123A24460E030066EDDB /* OwnershipDataProvider.swift */; };
 		764A123D244614A50066EDDB /* CarOwnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764A123C244614A50066EDDB /* CarOwnerCell.swift */; };
+		7652BD2E245B4F4D0067D306 /* OwnershipDataSourceInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7652BD2D245B4F4D0067D306 /* OwnershipDataSourceInput.swift */; };
 		767A428F245AC1590033F72A /* OwnershipInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767A428E245AC1590033F72A /* OwnershipInteractor.swift */; };
 		767A4292245AC1760033F72A /* OwnershipInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767A4291245AC1760033F72A /* OwnershipInteractorInput.swift */; };
 		767A4294245AC1910033F72A /* OwnershipInteractorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767A4293245AC1910033F72A /* OwnershipInteractorDelegate.swift */; };
@@ -68,6 +69,7 @@
 		763690D4244F1F85002A7041 /* ManufacturerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManufacturerViewModel.swift; sourceTree = "<group>"; };
 		764A123A24460E030066EDDB /* OwnershipDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipDataProvider.swift; sourceTree = "<group>"; };
 		764A123C244614A50066EDDB /* CarOwnerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarOwnerCell.swift; sourceTree = "<group>"; };
+		7652BD2D245B4F4D0067D306 /* OwnershipDataSourceInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipDataSourceInput.swift; sourceTree = "<group>"; };
 		767A428E245AC1590033F72A /* OwnershipInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipInteractor.swift; sourceTree = "<group>"; };
 		767A4291245AC1760033F72A /* OwnershipInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipInteractorInput.swift; sourceTree = "<group>"; };
 		767A4293245AC1910033F72A /* OwnershipInteractorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipInteractorDelegate.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 		76B807D42448516A007D8D40 /* DataProvider */ = {
 			isa = PBXGroup;
 			children = (
+				7652BD2D245B4F4D0067D306 /* OwnershipDataSourceInput.swift */,
 				76B807D524485191007D8D40 /* OwnershipDataProviderInput.swift */,
 				764A123A24460E030066EDDB /* OwnershipDataProvider.swift */,
 				76B807D7244851B2007D8D40 /* OwnershipDataProviderDelegate.swift */,
@@ -315,7 +318,7 @@
 		76F6D3D02445FC4B008026B5 = {
 			isa = PBXGroup;
 			children = (
-				76F6D3DB2445FC4B008026B5 /* AEFetchedResultsControllerApp */,
+				76F6D3DB2445FC4B008026B5 /* CarOwnership */,
 				76F6D3DA2445FC4B008026B5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -328,7 +331,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		76F6D3DB2445FC4B008026B5 /* AEFetchedResultsControllerApp */ = {
+		76F6D3DB2445FC4B008026B5 /* CarOwnership */ = {
 			isa = PBXGroup;
 			children = (
 				76925F30245076DE00A593AC /* AppSupport */,
@@ -339,7 +342,7 @@
 				76925F33245077DB00A593AC /* Managers */,
 				76EC1BFC24530E1A00A8453C /* Extensions */,
 			);
-			path = AEFetchedResultsControllerApp;
+			path = CarOwnership;
 			sourceTree = "<group>";
 		};
 		76F6D3FB244602F0008026B5 /* ManagedObjects */ = {
@@ -358,9 +361,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		76F6D3D82445FC4B008026B5 /* AEFetchedResultsControllerApp */ = {
+		76F6D3D82445FC4B008026B5 /* CarOwnership */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 76F6D3F02445FC4F008026B5 /* Build configuration list for PBXNativeTarget "AEFetchedResultsControllerApp" */;
+			buildConfigurationList = 76F6D3F02445FC4F008026B5 /* Build configuration list for PBXNativeTarget "CarOwnership" */;
 			buildPhases = (
 				76F6D3D52445FC4B008026B5 /* Sources */,
 				76F6D3D62445FC4B008026B5 /* Frameworks */,
@@ -370,7 +373,7 @@
 			);
 			dependencies = (
 			);
-			name = AEFetchedResultsControllerApp;
+			name = CarOwnership;
 			productName = AEFetchedResultsControllerApp;
 			productReference = 76F6D3D92445FC4B008026B5 /* CarOwnership.app */;
 			productType = "com.apple.product-type.application";
@@ -390,7 +393,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 76F6D3D42445FC4B008026B5 /* Build configuration list for PBXProject "AEFetchedResultsControllerApp" */;
+			buildConfigurationList = 76F6D3D42445FC4B008026B5 /* Build configuration list for PBXProject "CarOwnership" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -403,7 +406,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				76F6D3D82445FC4B008026B5 /* AEFetchedResultsControllerApp */,
+				76F6D3D82445FC4B008026B5 /* CarOwnership */,
 			);
 		};
 /* End PBXProject section */
@@ -432,6 +435,7 @@
 				7683B9F8244821A800B4B3F1 /* Person.swift in Sources */,
 				7683BA042448243D00B4B3F1 /* ManagedCar+CoreDataProperties.swift in Sources */,
 				7683BA052448243D00B4B3F1 /* ManagedManufacturer+CoreDataClass.swift in Sources */,
+				7652BD2E245B4F4D0067D306 /* OwnershipDataSourceInput.swift in Sources */,
 				76EC1BF72452E3BD00A8453C /* EditMileageInteractor.swift in Sources */,
 				76DCDFD8245B0D76005C22A1 /* EditMileagePresenterInput.swift in Sources */,
 				76B807D624485191007D8D40 /* OwnershipDataProviderInput.swift in Sources */,
@@ -614,7 +618,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S7T2CRG623;
-				INFOPLIST_FILE = AEFetchedResultsControllerApp/AppSupport/Info.plist;
+				INFOPLIST_FILE = CarOwnership/AppSupport/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -632,7 +636,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S7T2CRG623;
-				INFOPLIST_FILE = AEFetchedResultsControllerApp/AppSupport/Info.plist;
+				INFOPLIST_FILE = CarOwnership/AppSupport/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -647,7 +651,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		76F6D3D42445FC4B008026B5 /* Build configuration list for PBXProject "AEFetchedResultsControllerApp" */ = {
+		76F6D3D42445FC4B008026B5 /* Build configuration list for PBXProject "CarOwnership" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				76F6D3EE2445FC4F008026B5 /* Debug */,
@@ -656,7 +660,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		76F6D3F02445FC4F008026B5 /* Build configuration list for PBXNativeTarget "AEFetchedResultsControllerApp" */ = {
+		76F6D3F02445FC4F008026B5 /* Build configuration list for PBXNativeTarget "CarOwnership" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				76F6D3F12445FC4F008026B5 /* Debug */,

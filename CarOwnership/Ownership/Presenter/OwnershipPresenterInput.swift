@@ -21,10 +21,10 @@ protocol OwnershipPresenterInput: class  {
     func numberOfRowsInSection(at index: Int) -> Int
     func sectionName(at index: Int) -> String?
 	
-	func providerDidReloadData(_ provider: OwnershipDataProviderInput)
-	func providerDidFilterData(_ provider: OwnershipDataProviderInput)
-	func providerWillChangeContent(_ provider: OwnershipDataProviderInput)
-	func provider(_ provider: OwnershipDataProviderInput, didChange ownership: Ownership?, at indexPath: IndexPath?, for type: AEModelChangeType, newIndexPath: IndexPath?)
-	func providerDidChangeSection(_ provider: OwnershipDataProviderInput, at sectionIndex: Int, for type: AEModelChangeType)
-	func providerDidChangeContent(_ provider: OwnershipDataProviderInput)
+	func providerDidReloadData(_ provider: OwnershipDataSourceInput)
+	func providerDidFilterData(_ provider: OwnershipDataSourceInput)
+	func providerWillChangeContent(_ provider: OwnershipDataSourceInput)
+	func provider(_ provider: OwnershipDataSourceInput, didChange ownership: Ownership?, at indexPath: IndexPath?, for type: AEModelChangeType, newIndexPath: IndexPath?)
+	func providerDidChangeSection(_ provider: OwnershipDataSourceInput, at sectionIndex: Int, for type: AEModelChangeType)
+	func providerDidChangeContent(_ provider: OwnershipDataSourceInput)
 }

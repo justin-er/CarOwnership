@@ -92,9 +92,9 @@ class OwnershipDataProvider: NSObject {
     
 }
 
-extension OwnershipDataProvider: OwnershipDataProviderInput {
-    
-    var objects: [Ownership]? {
+extension OwnershipDataProvider: OwnershipDataSourceInput {
+	
+	var objects: [Ownership]? {
         guard let objects = frc.fetchedObjects else {
             return nil
         }
@@ -144,17 +144,20 @@ extension OwnershipDataProvider: OwnershipDataProviderInput {
         let carUrl                      = managedCar.objectID.uriRepresentation()
         var ownerUrl: URL?              = nil
         var manufacturerUrl: URL?       = nil
-        
+
         if let managedPerson = managedCar.owner {
             ownerUrl = managedPerson.objectID.uriRepresentation()
         }
-        
+
         if let managedManufacturere = managedCar.manufacturer {
             manufacturerUrl = managedManufacturere.objectID.uriRepresentation()
         }
-        
+
 		return (ownerUrl?.absoluteString, carUrl.absoluteString, manufacturerUrl?.absoluteString)
 	}
+}
+
+extension OwnershipDataProvider: OwnershipDataProviderInput {
     
     func relaodData() {
         do {

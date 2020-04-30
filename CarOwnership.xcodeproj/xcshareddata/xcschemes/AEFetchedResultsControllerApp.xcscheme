@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "76F6D3D82445FC4B008026B5"
-               BuildableName = "AEFetchedResultsControllerApp.app"
-               BlueprintName = "AEFetchedResultsControllerApp"
-               ReferencedContainer = "container:AEFetchedResultsControllerApp.xcodeproj">
+               BuildableName = "CarOwnership.app"
+               BlueprintName = "CarOwnership"
+               ReferencedContainer = "container:CarOwnership.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "76F6D3D82445FC4B008026B5"
-            BuildableName = "AEFetchedResultsControllerApp.app"
-            BlueprintName = "AEFetchedResultsControllerApp"
-            ReferencedContainer = "container:AEFetchedResultsControllerApp.xcodeproj">
+            BuildableName = "CarOwnership.app"
+            BlueprintName = "CarOwnership"
+            ReferencedContainer = "container:CarOwnership.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "76F6D3D82445FC4B008026B5"
-            BuildableName = "AEFetchedResultsControllerApp.app"
-            BlueprintName = "AEFetchedResultsControllerApp"
-            ReferencedContainer = "container:AEFetchedResultsControllerApp.xcodeproj">
+            BuildableName = "CarOwnership.app"
+            BlueprintName = "CarOwnership"
+            ReferencedContainer = "container:CarOwnership.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

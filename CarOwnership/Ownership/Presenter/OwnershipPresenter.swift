@@ -10,7 +10,7 @@ import Foundation
 
 class OwnershipPresenter : OwnershipPresenterInput {
     
-    private weak var dataProvider: OwnershipDataProviderInput?
+    private weak var dataProvider: OwnershipDataSourceInput?
     weak var delegate: OwnershipPresenterDelegate?
     
     let birthdateFormat = "dd LL yyyy"
@@ -77,22 +77,22 @@ class OwnershipPresenter : OwnershipPresenterInput {
         return dataProvider?.sectionName(at: index)
     }
 	
-	func providerDidReloadData(_ provider: OwnershipDataProviderInput) {
+	func providerDidReloadData(_ provider: OwnershipDataSourceInput) {
 		self.dataProvider = provider
         delegate?.presenterDidReloadData(self)
     }
     
-    func providerDidFilterData(_ provider: OwnershipDataProviderInput) {
+    func providerDidFilterData(_ provider: OwnershipDataSourceInput) {
         self.dataProvider = provider
 		delegate?.presenterDidFilterData(self)
     }
     
-    func providerWillChangeContent(_ provider: OwnershipDataProviderInput) {
+    func providerWillChangeContent(_ provider: OwnershipDataSourceInput) {
         self.dataProvider = provider
 		delegate?.presenterWillChangeContent(self)
     }
     
-    func provider(_ provider: OwnershipDataProviderInput, didChange ownership: Ownership?, at indexPath: IndexPath?, for type: AEModelChangeType, newIndexPath: IndexPath?) {
+    func provider(_ provider: OwnershipDataSourceInput, didChange ownership: Ownership?, at indexPath: IndexPath?, for type: AEModelChangeType, newIndexPath: IndexPath?) {
         
 		self.dataProvider = provider
         var ownershipViewModel: OwnershipViewModel? = nil
@@ -103,12 +103,12 @@ class OwnershipPresenter : OwnershipPresenterInput {
         delegate?.presenter(self, didChange: ownershipViewModel, at: indexPath, for: type, newIndexPath: newIndexPath)
     }
     
-    func providerDidChangeSection(_ provider: OwnershipDataProviderInput, at sectionIndex: Int, for type: AEModelChangeType) {
+    func providerDidChangeSection(_ provider: OwnershipDataSourceInput, at sectionIndex: Int, for type: AEModelChangeType) {
         self.dataProvider = provider
         delegate?.presenterDidChangeSection(self, at: sectionIndex, for: type)
     }
     
-    func providerDidChangeContent(_ provider: OwnershipDataProviderInput) {
+    func providerDidChangeContent(_ provider: OwnershipDataSourceInput) {
         self.dataProvider = provider
 		delegate?.presenterDidChangeContent(self)
     }

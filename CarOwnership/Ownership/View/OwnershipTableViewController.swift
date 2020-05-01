@@ -11,7 +11,7 @@ import UIKit
 class OwnershipTableViewController: UITableViewController {
 
 	var interactor: OwnershipInteractorInput?
-	private weak var presenter: OwnershipPresenterInput?
+	private weak var presenter: OwnershipViewModelDataSource?
 	
     var isVisible: Bool = false
     
@@ -103,19 +103,19 @@ class OwnershipTableViewController: UITableViewController {
 //MARK:- OwnershipPresenterDelegate
 extension OwnershipTableViewController: OwnershipPresenterDelegate {
     
-    func presenterDidReloadData(_ presenter: OwnershipPresenterInput) {
+    func presenterDidReloadData(_ presenter: OwnershipViewModelDataSource) {
 		
 		self.presenter = presenter
         tableView.reloadData()
     }
     
-    func presenterDidFilterData(_ presenter: OwnershipPresenterInput) {
+    func presenterDidFilterData(_ presenter: OwnershipViewModelDataSource) {
 		
 		self.presenter = presenter
         tableView.reloadData()
     }
     
-    func presenterWillChangeContent(_ presenter: OwnershipPresenterInput) {
+    func presenterWillChangeContent(_ presenter: OwnershipViewModelDataSource) {
         
 		self.presenter = presenter
 		
@@ -123,7 +123,7 @@ extension OwnershipTableViewController: OwnershipPresenterDelegate {
         tableView.beginUpdates()
     }
     
-    func presenter(_ presenter: OwnershipPresenterInput, didChange ownership: OwnershipViewModel?, at indexPath: IndexPath?, for type: AEModelChangeType, newIndexPath: IndexPath?) {
+    func presenter(_ presenter: OwnershipViewModelDataSource, didChange ownership: OwnershipViewModel?, at indexPath: IndexPath?, for type: AEModelChangeType, newIndexPath: IndexPath?) {
         
 		self.presenter = presenter
 		
@@ -141,7 +141,7 @@ extension OwnershipTableViewController: OwnershipPresenterDelegate {
         }
     }
     
-    func presenterDidChangeSection(_ presenter: OwnershipPresenterInput, at sectionIndex: Int, for type: AEModelChangeType) {
+    func presenterDidChangeSection(_ presenter: OwnershipViewModelDataSource, at sectionIndex: Int, for type: AEModelChangeType) {
         
 		self.presenter = presenter
 		
@@ -159,7 +159,7 @@ extension OwnershipTableViewController: OwnershipPresenterDelegate {
         }
     }
     
-    func presenterDidChangeContent(_ presenter: OwnershipPresenterInput) {
+    func presenterDidChangeContent(_ presenter: OwnershipViewModelDataSource) {
 		
 		self.presenter = presenter
 		

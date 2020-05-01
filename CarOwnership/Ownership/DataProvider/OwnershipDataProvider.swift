@@ -92,7 +92,7 @@ class OwnershipDataProvider: NSObject {
     
 }
 
-extension OwnershipDataProvider: OwnershipDataSourceInput {
+extension OwnershipDataProvider: OwnershipDataSource {
 	
 	var objects: [Ownership]? {
         guard let objects = frc.fetchedObjects else {

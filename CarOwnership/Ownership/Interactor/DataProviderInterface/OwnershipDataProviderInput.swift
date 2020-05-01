@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol OwnershipDataProviderInput: OwnershipDataSourceInput  {
+protocol OwnershipDataProviderInput: OwnershipDataSource  {
     
     func relaodData()
 	func deleteObject(object: Ownership)

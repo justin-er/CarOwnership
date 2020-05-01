@@ -37,28 +37,26 @@ class OwnershipInteractor: OwnershipInteractorInput {
 extension OwnershipInteractor: OwnershipDataProviderDelegate {
 	
 	func providerDidReloadData(_ provider: OwnershipDataProviderInput) {
-		presenter?.providerDidReloadData(provider)
+		presenter?.interactorDidReloadData(self, source: provider)
 	}
 	
 	func providerDidFilterData(_ provider: OwnershipDataProviderInput) {
-		presenter?.providerDidFilterData(provider)
+		presenter?.interactorDidFilterData(self, source: provider)
 	}
 	
 	func providerWillChangeContent(_ provider: OwnershipDataProviderInput) {
-		presenter?.providerWillChangeContent(provider)
+		presenter?.interactorWillChangeContent(self, source: provider)
 	}
 	
 	func provider(_ provider: OwnershipDataProviderInput, didChange ownership: Ownership?, at indexPath: IndexPath?, for type: AEModelChangeType, newIndexPath: IndexPath?) {
-		
-		presenter?.provider(provider, didChange: ownership, at: indexPath, for: type, newIndexPath: newIndexPath)
+		presenter?.interactor(self, source: provider, didChange: ownership, at: indexPath, for: type, newIndexPath: newIndexPath)
 	}
 	
 	func providerDidChangeSection(_ provider: OwnershipDataProviderInput, at sectionIndex: Int, for type: AEModelChangeType) {
-		
-		presenter?.providerDidChangeSection(provider, at: sectionIndex, for: type)
+		presenter?.interactorDidChangeSection(self, source: provider, at: sectionIndex, for: type)
 	}
 	
 	func providerDidChangeContent(_ provider: OwnershipDataProviderInput) {
-		presenter?.providerDidChangeContent(provider)
+		presenter?.interactorDidChangeContent(self, source: provider)
 	}
 }

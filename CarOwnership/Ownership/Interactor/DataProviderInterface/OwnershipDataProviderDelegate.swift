@@ -9,8 +9,8 @@
 import Foundation
 
 protocol OwnershipDataProviderDelegate: class {
-    
-    func providerDidReloadData(_ provider: OwnershipDataProviderInput)
+
+	func providerDidReloadData(_ provider: OwnershipDataProviderInput)
     
     func providerDidFilterData(_ provider: OwnershipDataProviderInput)
     
@@ -22,3 +22,4 @@ protocol OwnershipDataProviderDelegate: class {
     
     func providerDidChangeContent(_ provider: OwnershipDataProviderInput)
 }
+

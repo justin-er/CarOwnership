@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol OwnershipDataSourceInput: class {
+protocol OwnershipDataSource: class {
 	
     var objects: [Ownership]? { get }
     func object(at indexPath: IndexPath) -> Ownership

@@ -20,6 +20,8 @@
 		764A123B24460E030066EDDB /* OwnershipDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764A123A24460E030066EDDB /* OwnershipDataProvider.swift */; };
 		764A123D244614A50066EDDB /* CarOwnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764A123C244614A50066EDDB /* CarOwnerCell.swift */; };
 		7652BD2E245B4F4D0067D306 /* OwnershipDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7652BD2D245B4F4D0067D306 /* OwnershipDataSource.swift */; };
+		76689611245C7A2D00623E71 /* Ownership Architectue.ai in Resources */ = {isa = PBXBuildFile; fileRef = 7668960F245C7A2D00623E71 /* Ownership Architectue.ai */; };
+		76689612245C7A2D00623E71 /* Control Flow.ai in Resources */ = {isa = PBXBuildFile; fileRef = 76689610245C7A2D00623E71 /* Control Flow.ai */; };
 		767A428F245AC1590033F72A /* OwnershipInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767A428E245AC1590033F72A /* OwnershipInteractor.swift */; };
 		767A4292245AC1760033F72A /* OwnershipInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767A4291245AC1760033F72A /* OwnershipInteractorInput.swift */; };
 		7683B9F62448213400B4B3F1 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7683B9F52448213400B4B3F1 /* Car.swift */; };
@@ -70,6 +72,8 @@
 		764A123A24460E030066EDDB /* OwnershipDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipDataProvider.swift; sourceTree = "<group>"; };
 		764A123C244614A50066EDDB /* CarOwnerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarOwnerCell.swift; sourceTree = "<group>"; };
 		7652BD2D245B4F4D0067D306 /* OwnershipDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipDataSource.swift; sourceTree = "<group>"; };
+		7668960F245C7A2D00623E71 /* Ownership Architectue.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Ownership Architectue.ai"; sourceTree = "<group>"; };
+		76689610245C7A2D00623E71 /* Control Flow.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Control Flow.ai"; sourceTree = "<group>"; };
 		767A428E245AC1590033F72A /* OwnershipInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipInteractor.swift; sourceTree = "<group>"; };
 		767A4291245AC1760033F72A /* OwnershipInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipInteractorInput.swift; sourceTree = "<group>"; };
 		7683B9F52448213400B4B3F1 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
@@ -184,13 +188,22 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		76689613245C7A3100623E71 /* ArchitectureDesign */ = {
+			isa = PBXGroup;
+			children = (
+				76689610245C7A2D00623E71 /* Control Flow.ai */,
+				7668960F245C7A2D00623E71 /* Ownership Architectue.ai */,
+			);
+			path = ArchitectureDesign;
+			sourceTree = "<group>";
+		};
 		767A4290245AC15C0033F72A /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
 				767A4291245AC1760033F72A /* OwnershipInteractorInput.swift */,
 				767A428E245AC1590033F72A /* OwnershipInteractor.swift */,
-				76FD8956245C00690018D486 /* PresenterInterface */,
-				76FD8957245C007B0018D486 /* DataProviderInterface */,
+				76FD8956245C00690018D486 /* PresenterInterfaces */,
+				76FD8957245C007B0018D486 /* DataProviderInterfaces */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -332,6 +345,7 @@
 		76F6D3DB2445FC4B008026B5 /* CarOwnership */ = {
 			isa = PBXGroup;
 			children = (
+				76689613245C7A3100623E71 /* ArchitectureDesign */,
 				76925F30245076DE00A593AC /* AppSupport */,
 				7683B9F42448212000B4B3F1 /* Entities */,
 				763690CF244F1F5F002A7041 /* Models */,
@@ -356,22 +370,22 @@
 			path = ManagedObjects;
 			sourceTree = "<group>";
 		};
-		76FD8956245C00690018D486 /* PresenterInterface */ = {
+		76FD8956245C00690018D486 /* PresenterInterfaces */ = {
 			isa = PBXGroup;
 			children = (
 				763690C9244F1E06002A7041 /* OwnershipPresenterInput.swift */,
 			);
-			path = PresenterInterface;
+			path = PresenterInterfaces;
 			sourceTree = "<group>";
 		};
-		76FD8957245C007B0018D486 /* DataProviderInterface */ = {
+		76FD8957245C007B0018D486 /* DataProviderInterfaces */ = {
 			isa = PBXGroup;
 			children = (
 				7652BD2D245B4F4D0067D306 /* OwnershipDataSource.swift */,
 				76B807D524485191007D8D40 /* OwnershipDataProviderInput.swift */,
 				76B807D7244851B2007D8D40 /* OwnershipDataProviderDelegate.swift */,
 			);
-			path = DataProviderInterface;
+			path = DataProviderInterfaces;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -432,7 +446,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76689612245C7A2D00623E71 /* Control Flow.ai in Resources */,
 				760B50DC2452C8D600C2187F /* EditMileage.storyboard in Resources */,
+				76689611245C7A2D00623E71 /* Ownership Architectue.ai in Resources */,
 				76F6D3EC2445FC4F008026B5 /* LaunchScreen.storyboard in Resources */,
 				76F6D3E92445FC4F008026B5 /* Assets.xcassets in Resources */,
 				76F6D3E42445FC4B008026B5 /* Ownership.storyboard in Resources */,

@@ -32,7 +32,21 @@ The ownership data provider is a wrapper around Nfc in which all core data inter
 
 The OwnershipDataSource defines all the services that the data provider should provide for the presenter to act as a data source for representing data. Implementing these properties and methods is pretty straight forward because almost all of them have Nfc counterparts.
 
-https://github.com/amirrezaeghtedari/CarOwnership/blob/25ec3b309cbca4741fc9c4fe5adbbe2698d432fc/CarOwnership/Ownership/DataProvider/OwnershipDataSource.swift#L11-L23
+```Swift 
+protocol OwnershipDataSource: class {
+	
+    var objects: [Ownership]? { get }
+    func object(at indexPath: IndexPath) -> Ownership
+    func objectModelId(at indexPath: IndexPath) -> (ownerModelId: String?, carModelId: String?, manufacturerModelId: String?)
+    
+    var sectionIndexTitles: [String] { get }
+    var numberOfSections: Int? { get }
+    func section(forSectionIndexTitle title: String, at sectionIndex: Int) -> Int
+    func sectionIndexTitle(forSectionName sectionName: String) -> String?
+    func numberOfRowsInSection(at index: Int) -> Int
+    func sectionName(at index: Int) -> String?
+}
+```
 
 
 

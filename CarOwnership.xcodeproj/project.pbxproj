@@ -358,6 +358,7 @@
 		76F6D3D02445FC4B008026B5 = {
 			isa = PBXGroup;
 			children = (
+				76CA2578246EBCC700431A32 /* README.md */,
 				76F6D3DB2445FC4B008026B5 /* CarOwnership */,
 				76F6D3DA2445FC4B008026B5 /* Products */,
 			);
@@ -374,7 +375,6 @@
 		76F6D3DB2445FC4B008026B5 /* CarOwnership */ = {
 			isa = PBXGroup;
 			children = (
-				76CA2578246EBCC700431A32 /* README.md */,
 				76689613245C7A3100623E71 /* ArchitectureDesign */,
 				76925F30245076DE00A593AC /* AppSupport */,
 				7683B9F42448212000B4B3F1 /* Entities */,

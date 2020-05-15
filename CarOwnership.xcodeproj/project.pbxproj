@@ -33,12 +33,19 @@
 		7683BA042448243D00B4B3F1 /* ManagedCar+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7683B9FE2448243D00B4B3F1 /* ManagedCar+CoreDataProperties.swift */; };
 		7683BA052448243D00B4B3F1 /* ManagedManufacturer+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7683B9FF2448243D00B4B3F1 /* ManagedManufacturer+CoreDataClass.swift */; };
 		7683BA062448243D00B4B3F1 /* ManagedManufacturer+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7683BA002448243D00B4B3F1 /* ManagedManufacturer+CoreDataProperties.swift */; };
+		7686583024647B0100F0BD30 /* SalamPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7686582A24647B0100F0BD30 /* SalamPresenter.swift */; };
+		7686583124647B0100F0BD30 /* SalamWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7686582B24647B0100F0BD30 /* SalamWorker.swift */; };
+		7686583224647B0100F0BD30 /* SalamRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7686582C24647B0100F0BD30 /* SalamRouter.swift */; };
+		7686583324647B0100F0BD30 /* SalamModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7686582D24647B0100F0BD30 /* SalamModels.swift */; };
+		7686583424647B0100F0BD30 /* SalamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7686582E24647B0100F0BD30 /* SalamViewController.swift */; };
+		7686583524647B0100F0BD30 /* SalamInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7686582F24647B0100F0BD30 /* SalamInteractor.swift */; };
 		76925F32245077C200A593AC /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76925F31245077C100A593AC /* DBManager.swift */; };
 		769681B4244710BD00BC1477 /* AEModelChangeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769681AF244710BD00BC1477 /* AEModelChangeType.swift */; };
 		76B807D624485191007D8D40 /* OwnershipDataProviderInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B807D524485191007D8D40 /* OwnershipDataProviderInput.swift */; };
 		76B807D8244851B2007D8D40 /* OwnershipDataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B807D7244851B2007D8D40 /* OwnershipDataProviderDelegate.swift */; };
 		76B807DE24486256007D8D40 /* Ownership.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B807DD24486256007D8D40 /* Ownership.swift */; };
 		76C1C7A5244F1B0C000056F0 /* OwnershipPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C1C7A4244F1B0C000056F0 /* OwnershipPresenter.swift */; };
+		76CA2579246EBCC700431A32 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 76CA2578246EBCC700431A32 /* README.md */; };
 		76D043B9245C34FB00879B77 /* OwnershipViewModelDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D043B8245C34FB00879B77 /* OwnershipViewModelDataSource.swift */; };
 		76DCDFD8245B0D76005C22A1 /* EditMileagePresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DCDFD7245B0D76005C22A1 /* EditMileagePresenterInput.swift */; };
 		76DCDFDB245B0DFB005C22A1 /* EditMileagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DCDFDA245B0DFB005C22A1 /* EditMileagePresenter.swift */; };
@@ -85,12 +92,19 @@
 		7683B9FE2448243D00B4B3F1 /* ManagedCar+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ManagedCar+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7683B9FF2448243D00B4B3F1 /* ManagedManufacturer+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ManagedManufacturer+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7683BA002448243D00B4B3F1 /* ManagedManufacturer+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ManagedManufacturer+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7686582A24647B0100F0BD30 /* SalamPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalamPresenter.swift; sourceTree = "<group>"; };
+		7686582B24647B0100F0BD30 /* SalamWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalamWorker.swift; sourceTree = "<group>"; };
+		7686582C24647B0100F0BD30 /* SalamRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalamRouter.swift; sourceTree = "<group>"; };
+		7686582D24647B0100F0BD30 /* SalamModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalamModels.swift; sourceTree = "<group>"; };
+		7686582E24647B0100F0BD30 /* SalamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalamViewController.swift; sourceTree = "<group>"; };
+		7686582F24647B0100F0BD30 /* SalamInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalamInteractor.swift; sourceTree = "<group>"; };
 		76925F31245077C100A593AC /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		769681AF244710BD00BC1477 /* AEModelChangeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AEModelChangeType.swift; sourceTree = "<group>"; };
 		76B807D524485191007D8D40 /* OwnershipDataProviderInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipDataProviderInput.swift; sourceTree = "<group>"; };
 		76B807D7244851B2007D8D40 /* OwnershipDataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipDataProviderDelegate.swift; sourceTree = "<group>"; };
 		76B807DD24486256007D8D40 /* Ownership.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ownership.swift; sourceTree = "<group>"; };
 		76C1C7A4244F1B0C000056F0 /* OwnershipPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipPresenter.swift; sourceTree = "<group>"; };
+		76CA2578246EBCC700431A32 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		76D043B8245C34FB00879B77 /* OwnershipViewModelDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipViewModelDataSource.swift; sourceTree = "<group>"; };
 		76DCDFD7245B0D76005C22A1 /* EditMileagePresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMileagePresenterInput.swift; sourceTree = "<group>"; };
 		76DCDFDA245B0DFB005C22A1 /* EditMileagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMileagePresenter.swift; sourceTree = "<group>"; };
@@ -202,8 +216,6 @@
 			children = (
 				767A4291245AC1760033F72A /* OwnershipInteractorInput.swift */,
 				767A428E245AC1590033F72A /* OwnershipInteractor.swift */,
-				76FD8956245C00690018D486 /* PresenterInterfaces */,
-				76FD8957245C007B0018D486 /* DataProviderInterfaces */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -217,6 +229,19 @@
 				76B807DD24486256007D8D40 /* Ownership.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		768658172464787900F0BD30 /* ClaenSwiftSamples */ = {
+			isa = PBXGroup;
+			children = (
+				7686582A24647B0100F0BD30 /* SalamPresenter.swift */,
+				7686582B24647B0100F0BD30 /* SalamWorker.swift */,
+				7686582C24647B0100F0BD30 /* SalamRouter.swift */,
+				7686582D24647B0100F0BD30 /* SalamModels.swift */,
+				7686582E24647B0100F0BD30 /* SalamViewController.swift */,
+				7686582F24647B0100F0BD30 /* SalamInteractor.swift */,
+			);
+			path = ClaenSwiftSamples;
 			sourceTree = "<group>";
 		};
 		76925F30245076DE00A593AC /* AppSupport */ = {
@@ -243,7 +268,10 @@
 		76B807D42448516A007D8D40 /* DataProvider */ = {
 			isa = PBXGroup;
 			children = (
+				76B807D524485191007D8D40 /* OwnershipDataProviderInput.swift */,
+				7652BD2D245B4F4D0067D306 /* OwnershipDataSource.swift */,
 				764A123A24460E030066EDDB /* OwnershipDataProvider.swift */,
+				76B807D7244851B2007D8D40 /* OwnershipDataProviderDelegate.swift */,
 			);
 			path = DataProvider;
 			sourceTree = "<group>";
@@ -273,6 +301,7 @@
 		76C1C7A3244F1AEB000056F0 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				763690C9244F1E06002A7041 /* OwnershipPresenterInput.swift */,
 				76D043B8245C34FB00879B77 /* OwnershipViewModelDataSource.swift */,
 				76C1C7A4244F1B0C000056F0 /* OwnershipPresenter.swift */,
 				763690CB244F1E1B002A7041 /* OwnershipPresenterDelegate.swift */,
@@ -345,6 +374,7 @@
 		76F6D3DB2445FC4B008026B5 /* CarOwnership */ = {
 			isa = PBXGroup;
 			children = (
+				76CA2578246EBCC700431A32 /* README.md */,
 				76689613245C7A3100623E71 /* ArchitectureDesign */,
 				76925F30245076DE00A593AC /* AppSupport */,
 				7683B9F42448212000B4B3F1 /* Entities */,
@@ -353,6 +383,7 @@
 				760B50D62452C88C00C2187F /* EditMileage */,
 				76925F33245077DB00A593AC /* Managers */,
 				76EC1BFC24530E1A00A8453C /* Extensions */,
+				768658172464787900F0BD30 /* ClaenSwiftSamples */,
 			);
 			path = CarOwnership;
 			sourceTree = "<group>";
@@ -368,24 +399,6 @@
 				7683BA002448243D00B4B3F1 /* ManagedManufacturer+CoreDataProperties.swift */,
 			);
 			path = ManagedObjects;
-			sourceTree = "<group>";
-		};
-		76FD8956245C00690018D486 /* PresenterInterfaces */ = {
-			isa = PBXGroup;
-			children = (
-				763690C9244F1E06002A7041 /* OwnershipPresenterInput.swift */,
-			);
-			path = PresenterInterfaces;
-			sourceTree = "<group>";
-		};
-		76FD8957245C007B0018D486 /* DataProviderInterfaces */ = {
-			isa = PBXGroup;
-			children = (
-				7652BD2D245B4F4D0067D306 /* OwnershipDataSource.swift */,
-				76B807D524485191007D8D40 /* OwnershipDataProviderInput.swift */,
-				76B807D7244851B2007D8D40 /* OwnershipDataProviderDelegate.swift */,
-			);
-			path = DataProviderInterfaces;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -420,6 +433,7 @@
 				TargetAttributes = {
 					76F6D3D82445FC4B008026B5 = {
 						CreatedOnToolsVersion = 11.4;
+						LastSwiftMigration = 1140;
 					};
 				};
 			};
@@ -449,6 +463,7 @@
 				76689612245C7A2D00623E71 /* Control Flow.ai in Resources */,
 				760B50DC2452C8D600C2187F /* EditMileage.storyboard in Resources */,
 				76689611245C7A2D00623E71 /* Ownership Architectue.ai in Resources */,
+				76CA2579246EBCC700431A32 /* README.md in Resources */,
 				76F6D3EC2445FC4F008026B5 /* LaunchScreen.storyboard in Resources */,
 				76F6D3E92445FC4F008026B5 /* Assets.xcassets in Resources */,
 				76F6D3E42445FC4B008026B5 /* Ownership.storyboard in Resources */,
@@ -467,6 +482,8 @@
 				7683B9F8244821A800B4B3F1 /* Person.swift in Sources */,
 				7683BA042448243D00B4B3F1 /* ManagedCar+CoreDataProperties.swift in Sources */,
 				7683BA052448243D00B4B3F1 /* ManagedManufacturer+CoreDataClass.swift in Sources */,
+				7686583224647B0100F0BD30 /* SalamRouter.swift in Sources */,
+				7686583024647B0100F0BD30 /* SalamPresenter.swift in Sources */,
 				7652BD2E245B4F4D0067D306 /* OwnershipDataSource.swift in Sources */,
 				76EC1BF72452E3BD00A8453C /* EditMileageInteractor.swift in Sources */,
 				76DCDFD8245B0D76005C22A1 /* EditMileagePresenterInput.swift in Sources */,
@@ -488,10 +505,13 @@
 				763690CA244F1E06002A7041 /* OwnershipPresenterInput.swift in Sources */,
 				76EC1BF92452E3F100A8453C /* EditMileageDataProviderInput.swift in Sources */,
 				763690D1244F1F6C002A7041 /* CarViewModel.swift in Sources */,
+				7686583124647B0100F0BD30 /* SalamWorker.swift in Sources */,
 				767A428F245AC1590033F72A /* OwnershipInteractor.swift in Sources */,
 				7683B9F62448213400B4B3F1 /* Car.swift in Sources */,
+				7686583524647B0100F0BD30 /* SalamInteractor.swift in Sources */,
 				7683BA022448243D00B4B3F1 /* ManagedPerson+CoreDataProperties.swift in Sources */,
 				767A4292245AC1760033F72A /* OwnershipInteractorInput.swift in Sources */,
+				7686583424647B0100F0BD30 /* SalamViewController.swift in Sources */,
 				76B807D8244851B2007D8D40 /* OwnershipDataProviderDelegate.swift in Sources */,
 				76EC1BF52452DEED00A8453C /* EditMileageComposer.swift in Sources */,
 				769681B4244710BD00BC1477 /* AEModelChangeType.swift in Sources */,
@@ -500,6 +520,7 @@
 				76EC1BFB2452E55700A8453C /* EditMileageDataProvider.swift in Sources */,
 				763690CC244F1E1B002A7041 /* OwnershipPresenterDelegate.swift in Sources */,
 				76F6D3DF2445FC4B008026B5 /* SceneDelegate.swift in Sources */,
+				7686583324647B0100F0BD30 /* SalamModels.swift in Sources */,
 				760B50D02452BC4C00C2187F /* OwnershipComposer.swift in Sources */,
 				763690D5244F1F85002A7041 /* ManufacturerViewModel.swift in Sources */,
 				7683BA062448243D00B4B3F1 /* ManagedManufacturer+CoreDataProperties.swift in Sources */,
@@ -648,6 +669,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S7T2CRG623;
 				INFOPLIST_FILE = CarOwnership/AppSupport/Info.plist;
@@ -657,6 +679,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.amirrezaeghtedari.CarOwnership;
 				PRODUCT_NAME = CarOwnership;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -666,6 +689,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S7T2CRG623;
 				INFOPLIST_FILE = CarOwnership/AppSupport/Info.plist;

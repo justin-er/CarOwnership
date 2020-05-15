@@ -1,5 +1,7 @@
 # CarOwnership
 
+![](https://amirrezaeghtedari.com/wp-content/uploads/2020/05/CarOwnership-919x620.png)
+
 This project has been created to show how to have an iOS application with clean architecture while we are using NSFetchedResultsController.
 
 Probably the NSFetchedResutlsController makes the tightest coupling between UI and another layers of an iOS application. NSFetchedResutlsController Class has been created by Apple to provide a seamless data flow from Core Data layer to UIKit and vice a versa. The MVC is Apple’s native architecture and NSFetchedResultsController lays in the Model layer of this architecture perfectly but it cannot provide features like unit testing, low coupling, and independency. You might say that the lack of these possibilities is due to the MVC’s nature. I would answer yes, but these features are very important for having a well-structured application that is readable, testable, maintainable, and extendable. So if you value these traits, you do not have any problems with having some more small files in your project and you love Clean Architecture, keep on reading this article.
@@ -30,6 +32,7 @@ The ownership data provider is a wrapper around Nfc in which all core data inter
 
 The OwnershipDataSource defines all the services that the data provider should provide for the presenter to act as a data source for representing data. Implementing these properties and methods is pretty straight forward because almost all of them have Nfc counterparts.
 
+https://github.com/amirrezaeghtedari/CarOwnership/blob/25ec3b309cbca4741fc9c4fe5adbbe2698d432fc/CarOwnership/Ownership/DataProvider/OwnershipDataSource.swift#L11-L23
 
 
 

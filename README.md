@@ -47,6 +47,59 @@ protocol OwnershipDataSource: class {
     func sectionName(at index: Int) -> String?
 }
 ```
+The second one, the OwnershipDataProviderInput, defines the services that the data provider should provide for the interactor to implement its business logic which differs from app to app.
+
+```Swift
+protocol OwnershipDataProviderInput: OwnershipDataSource  {
+    
+    func relaodData()
+	func deleteObject(object: Ownership)
+	func deleteObject(at indexPath: IndexPath)
+    func updateObject(at indexPath: IndexPath, by data: Ownership)
+    func insertObject(by data: Ownership)
+}
+```
+The Data provider also has a delegate of type OwnershipDataProviderDelegate protocol that informs interactor about the completion of actions and data changes. As you can see the last four functions have counterparts in NSFetchedResultsControllerDelegate. Note that there are two main differences between OwnershipDataProviderDelegate and NSFetchedResultsControllerDelegate protocols. The Nfc delegate’s didChange anObject call back sends objects of type Any while data provider delegate’s callback delivers objects of type Ownership to the interactor, which is an app entity. The other difference is the type of changes in the callbacks. In the Nfc’s delegate, it is NSFetchedResultsChangeType while in the data provider delegate it is of type AEModelChangeType, which is an enumeration defined in the app.
+
+These two important changes help the app architecture to comply with the dependency inversion rule of the SOLID principles.
+
+## Interactor
+The interactor depends on the OwnershipDataProviderInput and OwnershipDataSource protocols which are implemented by the data provider and explained above. The interactor also acts as a delegate for the data provider. As you see in the interactor class, in this example, it only delivers these callbacks directly to the presenter, to inform it about data changes but the interactor has complete control over it. It can implement any business logic and change data before propagating that to the presenter. Another important note is that during redirecting the data from provider callbacks to the presenter input by the interactor, the ownership data source is also passed. The presenter uses this data source to respond to the receiving table view or collection view requests from the view controller.
+
+```Swift
+extension OwnershipInteractor: OwnershipDataProviderDelegate {
+	
+	func providerDidReloadData(_ provider: OwnershipDataProviderInput) {
+		presenter?.interactorDidReloadData(self, source: provider)
+	}
+	
+	func providerDidFilterData(_ provider: OwnershipDataProviderInput) {
+		presenter?.interactorDidFilterData(self, source: provider)
+	}
+	
+	func providerWillChangeContent(_ provider: OwnershipDataProviderInput) {
+		presenter?.interactorWillChangeContent(self, source: provider)
+	}
+	
+	func provider(_ provider: OwnershipDataProviderInput, didChange ownership: Ownership?, at indexPath: IndexPath?, for type: AEModelChangeType, newIndexPath: IndexPath?) {
+		presenter?.interactor(self, source: provider, didChange: ownership, at: indexPath, for: type, newIndexPath: newIndexPath)
+	}
+	
+	func providerDidChangeSection(_ provider: OwnershipDataProviderInput, at sectionIndex: Int, for type: AEModelChangeType) {
+		presenter?.interactorDidChangeSection(self, source: provider, at: sectionIndex, for: type)
+	}
+	
+	func providerDidChangeContent(_ provider: OwnershipDataProviderInput) {
+		presenter?.interactorDidChangeContent(self, source: provider)
+	}
+}
+```
+Interactor also conforms to the OwnershipInteractorInput to act as a use case for the view controller and fulfilling its requirements.
+
+## Presenter
+The presenter conforms to the OwnershipPresentInput. The interactor uses this interface to inform the presenter about the data changes. The presenter also depends on a delegate of type OwnershipPresenterDelegate which is implemented by the view controller. The presenter uses this delegate to inform the view controller about the data changes. There are again two notes. First, the presenter receives data of type Ownership form the interactor then maps it to the OwnershipViewModel and passes it to the view layer. The second note is that the presenter also passes itself as an OwnsershipViewModelDataSource instance to the view layer. In fact, the view controller uses this instance to respond to the table or collection view requests like the numberOfSections or the cellForRowAt requests. If you look at it deeply, you will see that when the view controller asks for some data from the OwnershipVieModelDataSource, for example by calling the numberOfRowsInSection method, this request is redirected to the interactor and then to the data provider and finally will be handled by the Nfc itself. So we can say we have access to most of the Nfc features within a clean architecture. Thus we have access to all features of the clean architecture, important abilities like reusability, maintainability, testability, readability, and modularity.
+
+That is all about it. I agree that there more files in the project rather than using pure MVC. But I think this overhead really worth it because we are achieving very important results.
 
 
 
